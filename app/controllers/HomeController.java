@@ -19,6 +19,6 @@ public class HomeController extends Controller {
     public Result index() {
         return ok(index.render("Community organisation my dudes"));
     }
-    //this is a test comment
+
 
 }
