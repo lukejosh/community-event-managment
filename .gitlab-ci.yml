@@ -1,0 +1,16 @@
+before_script:
+  - apt-get update -qq && apt-get install -y -qq default-jdk nodejs
+
+stages:
+  - build
+  - test
+
+job1:
+  stage: build
+  script:
+    - activator build
+
+job2:
+  stage: test
+  script:
+    - activator test
