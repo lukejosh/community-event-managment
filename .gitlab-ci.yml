@@ -1,5 +1,5 @@
 before_script:
-  - apt-get update -qq && apt-get install -y -qq default-jdk nodejs unzip
+  - apt-get update -qq && apt-get install -y -qq openjdk-8-jdk openjdk-8-jre nodejs unzip
   - wget https://downloads.typesafe.com/typesafe-activator/1.3.10/typesafe-activator-1.3.10-minimal.zip
   - unzip typesafe-activator-1.3.10-minimal.zip
 
