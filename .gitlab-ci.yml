@@ -1,5 +1,7 @@
 before_script:
-  - apt-get update -qq && apt-get install -y -qq default-jdk nodejs
+  - apt-get update -qq && apt-get install -y -qq default-jdk nodejs unzip
+  - wget https://downloads.typesafe.com/typesafe-activator/1.3.10/typesafe-activator-1.3.10-minimal.zip
+  - unzip typesafe-activator-1.3.10-minimal.zip
 
 stages:
   - build
@@ -8,9 +10,9 @@ stages:
 job1:
   stage: build
   script:
-    - activator build
+    - activator-1.3.10-minimal/bin/activator build
 
 job2:
   stage: test
   script:
-    - activator test
+    - activator-1.3.10-minimal/bin/activator test
