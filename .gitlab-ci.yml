@@ -1,15 +1,19 @@
-image: ingensi:play-framework
-before_script:
-  - apt-get update -qq && apt-get install -y -qq nodejs unzip
-  - wget https://downloads.typesafe.com/typesafe-activator/1.3.10/typesafe-activator-1.3.10-minimal.zip
-  - unzip typesafe-activator-1.3.10-minimal.zip
-
 stages:
   - build
   - test
+  - deploy
 
 job1:
   stage: build
   script:
-    - activator-1.3.10-minimal/bin/activator compile
-    - activator-1.3.10-minimal/bin/activator test
+    - activator compile
+
+job2:
+  stage: test
+  script:
+    - activator test
+
+job3:
+  stage: deploy
+  script:
+    - activator start
