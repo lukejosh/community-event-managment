@@ -12,17 +12,17 @@ import java.util.*;
  * Created by Sai on 29/08/2016.
  */
 public class Event  extends Model {
-    public String eventName;
-    public Double cost;
-    public Double donationsTotal;
-    public LocalDateTime eventDateTime;
-    public Boolean publicPrivate;
-    public String venue;
-    public Integer capacity;
-    public ArrayList<ArrayList<Integer>> attendeesCurrent; //
-    public TreeMap<Integer, Double> donationsPersonal;   //Int user ID, double for donation
-    public int[] volunteersNeeded;  //split default into four departments
-    public int[] volunteersAcquired;
+    protected String eventName;
+    protected Double cost;
+    protected Double donationsTotal;
+    protected LocalDateTime eventDateTime;
+    protected Boolean publicPrivate;
+    protected String venue;
+    protected Integer capacity;
+    protected ArrayList<ArrayList<Integer>> attendeesCurrent; //
+    protected TreeMap<Integer, Double> donationsPersonal;   //Int user ID, double for donation
+    protected int[] volunteersNeeded;  //split default into four departments
+    protected int[] volunteersAcquired;
 
 
     /**
