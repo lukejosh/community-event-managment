@@ -48,7 +48,7 @@ public class Event  extends Model {
         this.donationsTotal = 0.0;
         this.volunteersAcquired = new int[]{0,0,0,0};
         this.attendeesCurrent = new ArrayList<ArrayList<Integer>>();
-        this.donationsPersonal = new TreeMap<Integer, Double>()
+        this.donationsPersonal = new TreeMap<Integer, Double>();
     }
 
     public Event (String eventName, LocalDateTime eventDateTime, String venue, int capacity, double cost, int[] volunteersNeeded, boolean publicPrivate){
@@ -68,7 +68,7 @@ public class Event  extends Model {
         this.donationsPersonal = new TreeMap<Integer, Double>();
     }
 
-    /*public String geteventName() {return this.eventName;}
+    public String geteventName() {return this.eventName;}
     public Double getCost() {return this.cost;}
     public Double getDonationsTotal() { return this.donationsTotal;}
     public LocalDateTime getEventDateTime(){ return this.eventDateTime;}
@@ -76,13 +76,38 @@ public class Event  extends Model {
     public String getVenue(){ return this.venue}
     public Integer getCapacity(){ return this.capacity;}
     public ArrayList<ArrayList<Integer>> getAttendeesCurrent(){return this.attendeesCurrent;}
-    public TreeMap<Integer, Double> getDonationsPersonal(){return this.donationsPersonal}
-    public int[] getVolunteersNeeded(){return this.volunteersNeeded;}
-    public int[] getVolunteersAcquired(){return this.volunteersAcquired;}
+    public TreeMap<Integer, Double> getDonationsPersonal(){return this.donationsPersonal;}
+
 
     public void setEventName(String eventName){this.eventName = eventName;}
     public void setCost(Double cost){this.cost = cost;}
-    public void setDonationsTotal*/// we can just use public variables hey
+    public void setDonationsTotal(Double donationsTotal){this.donationsTotal = donationsTotal;}
+    public void setEventDateTime(LocalDateTime eventDateTime){this.eventDateTime = eventDateTime;}
+    public void setPrivacy(Boolean publicPrivate){this.publicPrivate = publicPrivate;}
+    public void setVenue(String venue){this.venue = venue;}
+    public void setCapacity(Integer capacity){this.capacity = capacity;}
+    public int[] getVolunteersNeeded(){return this.volunteersNeeded;}
+    public int[] getVolunteersAcquired(){return this.volunteersAcquired;}
+
+    public void addAttendee(Integer userID, Integer numGuests){
+        ArrayList<Integer> attendee = new ArrayList<Integer>();
+        attendee.add(userID);
+        attendee.add(numGuests);
+
+        this.attendeesCurrent.add(attendee);
+    }
+
+    public void addDonation(Integer userID, Double donation){
+        this.donationsTotal += donation;
+
+        if (this.donationsPersonal.containsKey(userID)) {
+            Double currentDonation = this.donationsPersonal.get(userID);        //CHECK
+            this.donationsPersonal.replace(userID,currentDonation + donation );
+
+        }else{
+            this.donationsPersonal.put(userID, donation);
+        }
+    }
 
 
 
