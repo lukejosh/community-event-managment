@@ -73,7 +73,7 @@ public class Event  extends Model {
     public Double getDonationsTotal() { return this.donationsTotal;}
     public LocalDateTime getEventDateTime(){ return this.eventDateTime;}
     public Boolean getPrivacy(){return this.publicPrivate;}
-    public String getVenue(){ return this.venue}
+    public String getVenue(){ return this.venue;}
     public Integer getCapacity(){ return this.capacity;}
     public ArrayList<ArrayList<Integer>> getAttendeesCurrent(){return this.attendeesCurrent;}
     public TreeMap<Integer, Double> getDonationsPersonal(){return this.donationsPersonal;}
@@ -107,6 +107,9 @@ public class Event  extends Model {
         }else{
             this.donationsPersonal.put(userID, donation);
         }
+
+        // TODO add donation to user who donated
+
     }
 
 
