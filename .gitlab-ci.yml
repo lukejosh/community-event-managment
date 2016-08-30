@@ -9,3 +9,5 @@ deploy-staging:
   script:
     - gem install dpl
     - dpl --provider=heroku --app=commorg-production --api-key=1e8d6840-65a8-4f85-9627-e7b2760894d6
+  only:
+    - development
