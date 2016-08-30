@@ -1,19 +1,9 @@
+image: ingensi:play-framework
+
 stages:
-  - build
   - test
-  - deploy
 
 job1:
-  stage: build
-  script:
-    - activator compile
-
-job2:
   stage: test
   script:
     - activator test
-
-job3:
-  stage: deploy
-  script:
-    - activator start
