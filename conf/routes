@@ -14,4 +14,4 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 GET     /event                      controllers.EventController.event
 
-GET     /search                     controllers.SearchController.search
+GET     /results                     controllers.ResultsController.search

@@ -1,0 +1,25 @@
+@(events: java.util.List[models.Event])
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>Search Results</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Price</th>
+            </tr>
+            @for(i <- 0 until events.size){
+                <tr>
+                    <td>@events(i).eventName</td>
+                    <td>@events(i).venue</td>
+                    <td>@events(i).cost</td>
+                </tr>
+            }
+        </table>
+    </body>
+</html>
