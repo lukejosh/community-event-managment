@@ -1,4 +1,4 @@
-image: ingensi:play-framework
+image: ingensi/play-framework:latest
 
 stages:
   - test
