@@ -109,6 +109,12 @@ public class Event  extends Model {
         }
 
         // TODO add donation to user who donated
+        /**
+         * create list of users
+         *
+         * var = get user(userID).donations
+         * user(userID).addDonation(Double donation + var )
+         */
 
     }
 
