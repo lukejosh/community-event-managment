@@ -1,19 +1,13 @@
-stages:
-  - build
-  - test
-  - deploy
-
-job1:
-  stage: build
+deploy-production:
   script:
-    - activator compile
+    - gem install dpl
+    - dpl --provider=heroku --app=commorg-staging --api-key=1e8d6840-65a8-4f85-9627-e7b2760894d6
+  only:
+    - master
 
-job2:
-  stage: test
+deploy-staging:
   script:
-    - activator test
-
-job3:
-  stage: deploy
-  script:
-    - activator start
+    - gem install dpl
+    - dpl --provider=heroku --app=commorg-production --api-key=1e8d6840-65a8-4f85-9627-e7b2760894d6
+  only:
+    - development
