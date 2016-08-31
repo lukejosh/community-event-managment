@@ -1,20 +1,116 @@
-@*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
-@(message: String)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>Starter Template - Materialize</title>
 
-@*
- * Call the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
-@main("Welcome to Play") {
+            <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="@routes.Assets.versioned("stylesheets/materialize.css")",  type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="@routes.Assets.versioned("stylesheets/style.css")" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <!-- CSS  -->
+    </head>
 
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    @play20.welcome(message, style = "Java")
+    <body>
+        <nav class="deep-orange" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center">Logo</a>
+                    <!-- Desktop Navbar Items -->
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
 
-}
+                <ul class="left hide-on-med-and-down">
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Upcoming</a></li>
+                    <li><a href="#">Something Else</a></li>
+                </ul>
+                    <!-- Desktop Navbar Items -->
+
+                    <!-- Mobile Navbar Items -->
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Upcoming</a></li>
+                    <li><a href="#">Something Else</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <!-- Mobile Navbar Items -->
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="@routes.Assets.versioned("images/splendour.jpg")">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">Splendour In The Grass<i class="material-icons right">more_vert</i></span>
+                                <p><a href="#">More Information</a></p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Splendour In The Grass<i class="material-icons right">close</i></span>
+                                <p>
+                                    Location: North Byron Parklands<br>
+                                    Date: 01/01/2000<br>
+                                    Price: $300<br>
+                                    Availability: 50,000
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="@routes.Assets.versioned("images/splendour.jpg")">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">Splendour In The Grass<i class="material-icons right">more_vert</i></span>
+                                <p><a href="#">More Information</a></p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Splendour In The Grass<i class="material-icons right">close</i></span>
+                                <p>
+                                    Location: North Byron Parklands<br>
+                                    Date: 01/01/2000<br>
+                                    Price: $300<br>
+                                    Availability: 50,000
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="@routes.Assets.versioned("images/splendour.jpg")">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">Splendour In The Grass<i class="material-icons right">more_vert</i></span>
+                                <p><a href="#">More Information</a></p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Splendour In The Grass<i class="material-icons right">close</i></span>
+                                <p>
+                                    Location: North Byron Parklands<br>
+                                    Date: 01/01/2000<br>
+                                    Price: $300<br>
+                                    Availability: 50,000
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="@routes.Assets.versioned("javascripts/materialize.js")"></script>
+        <script src="@routes.Assets.versioned("javascripts/init.js")"></script>
+            <!--  Scripts-->
+    </body>
