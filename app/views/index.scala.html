@@ -7,7 +7,8 @@
 
             <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="@routes.Assets.versioned("stylesheets/materialize.css")",  type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link href="@routes.Assets.versioned("stylesheets/materialize.css")" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="@routes.Assets.versioned("stylesheets/style.css")" type="text/css" rel="stylesheet" media="screen,projection"/>
             <!-- CSS  -->
     </head>
@@ -45,16 +46,15 @@
         <!-- Upcoming Event Cards -->
         <div class="container">
             <div class="section">
+
                 <div class="row center">
                     <h5 class="header col s12 light">Upcoming Events</h5>
                 </div>
-            </div>
-            <div class="section">
-                <div class="row">
 
-                    @for(i <- 1 to 3){
+                <div class="row">
+                    @for(i <- 1 to 6){ @*Generate 6 of the same card, for now*@
                         <div class="col s12 m4">
-                            <div class="card hoverable">
+                            <div class="card hoverable small">
                                 <div class="card-image waves-effect waves-block waves-light">
                                     <img class="activator" src="@routes.Assets.versioned("images/splendour.jpg")">
                                 </div>
@@ -74,6 +74,102 @@
                             </div>
                         </div>
                     }
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+
+            <!-- Gallery, About, Get Involved, Connect, Top Donators -->
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m4">
+                        <div class="card teal small">
+                            <div class="card-content white-text">
+                                <span class="card-title">Gallery</span>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam facilisis turpis quis sem ultricies facilisis nec sed enim. Suspendisse at purus varius, vehicula ligula in, pretium ligula. Integer suscipit maximus nulla, et vehicula velit pellentesque eu.
+                                </p>
+                            </div>
+
+                            <div class="card-action">
+                                <a href="#">Past Events</a>
+                                <a href="#">Last Year's Special Event</a>
+                            </div>
+                        </div>
+
+                        <div class="card teal small">
+                            <div class="card-content white-text">
+                                <span class="card-title">Get Involved</span>
+                                <p>
+                                    Quisque sem mauris, dapibus a venenatis vel, blandit sed purus. Etiam ultricies a purus nec varius. Etiam elementum felis a consectetur pulvinar.
+                                </p>
+                            </div>
+
+                            <div class="card-action">
+                                <a href="#">Contact Us</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="card teal small">
+                            <div class="card-content white-text">
+                                <span class="card-title">About</span>
+                                <p>
+                                    Nulla imperdiet mollis est non mattis. Vestibulum iaculis condimentum diam, in hendrerit mauris sagittis ultricies.
+                                </p>
+                            </div>
+
+                            <div class="card-action">
+                                <a href="#">Find Out More</a>
+                            </div>
+
+                        </div>
+                        <div class="card teal small">
+                            <div class="card-content white-text">
+                                <span class="card-title">Connect</span>
+                            </div>
+
+                            <div class="card-action">
+                                <a href="http://facebook.com" class="white-text"><i class="fa fa-facebook-official large"></i></a>
+                                <a href="http://twitter.com" class="white-text"><i class="fa fa-twitter-square large"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <ul class="collection">
+                            <li class="collection-item avatar">
+                                <img src="@routes.Assets.versioned("images/user-images/john_smith.jpg")" alt="" class="circle">
+                                <span class="title">John Smith</span>
+                                <p class="secondary-content">$500</p>
+                            </li>
+
+                            <li class="collection-item avatar">
+                                <img src="@routes.Assets.versioned("images/user-images/laura_jones.jpg")" alt="" class="circle">
+                                <span class="title">Laura Jones</span>
+                                <p class="secondary-content">$400</p>
+                            </li>
+
+                            <li class="collection-item avatar">
+                                <img src="@routes.Assets.versioned("images/user-images/john_smith.jpg")" alt="" class="circle">
+                                <span class="title">John Smith</span>
+                                <p class="secondary-content">$500</p>
+                            </li>
+
+                            <li class="collection-item avatar">
+                                <img src="@routes.Assets.versioned("images/user-images/laura_jones.jpg")" alt="" class="circle">
+                                <span class="title">Laura Jones</span>
+                                <p class="secondary-content">$400</p>
+                            </li>
+
+                            <li class="collection-item avatar">
+                                <img src="@routes.Assets.versioned("images/user-images/laura_jones.jpg")" alt="" class="circle">
+                                <span class="title">Laura Jones</span>
+                                <p class="secondary-content">$400</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
