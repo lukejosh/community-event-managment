@@ -14,34 +14,8 @@
     </head>
 
     <body>
-        <!-- Navigation bar -->
-        <nav class="deep-orange" role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center">Logo</a>
-                    <!-- Desktop Navbar Items -->
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
-                </ul>
 
-                <ul class="left hide-on-med-and-down">
-                    <li><a href="#">Search</a></li>
-                    <li><a href="#">Upcoming</a></li>
-                    <li><a href="#">Something Else</a></li>
-                </ul>
-                    <!-- Desktop Navbar Items -->
-
-                    <!-- Mobile Navbar Items -->
-                <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Search</a></li>
-                    <li><a href="#">Upcoming</a></li>
-                    <li><a href="#">Something Else</a></li>
-                </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                    <!-- Mobile Navbar Items -->
-            </div>
-        </nav>
+        @header.render()
 
         <!-- Upcoming Event Cards -->
         <div class="container">
@@ -184,23 +158,7 @@
             </div>
         </div>
 
-        <footer class="page-footer deep-orange">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class=><a class="white-text" href="#">Contact Us</a></h5>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class=><a class="white-text" href="#">About Us</a></h5>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                <div class="container">
-            © 2014 Copyright CommOrg
-                </div>
-            </div>
-        </footer>
+        @footer.render()
 
             <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
