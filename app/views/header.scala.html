@@ -3,8 +3,8 @@
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center">Logo</a>
             <!-- Desktop Navbar Items -->
         <ul class="right hide-on-med-and-down">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="#login" class="modal-trigger">Login</a></li>
+            <li><a href="#register" class="modal-trigger">Register</a></li>
         </ul>
 
         <ul class="left hide-on-med-and-down">
@@ -16,8 +16,8 @@
 
             <!-- Mobile Navbar Items -->
         <ul id="nav-mobile" class="side-nav">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="#login" class="modal-trigger">Login</a></li>
+            <li><a href="#register" class="modal-trigger">Register</a></li>
             <li><a href="#">Search</a></li>
             <li><a href="#">Upcoming</a></li>
             <li><a href="#">Something Else</a></li>
@@ -26,3 +26,85 @@
             <!-- Mobile Navbar Items -->
     </div>
 </nav>
+
+    <!--login modal-->
+<div id="login" class="modal">
+    <div class="modal-content">
+        <h2 class="center-align">Login</h2>
+        <div class="center-align">
+            <div class="divider"></div>
+            <form class="col s12">
+                <div class="row center-align">
+                    <div class="input-field col m10 offset-m1 orange-text">
+                        <i class="material-icons prefix">mail</i>
+                        <input id="login_email" type="text" class="validate">
+                        <label for="login_email">Email Address</label>
+                    </div>
+                    <div class="input-field col m10 offset-m1 orange-text ">
+                        <i class="material-icons prefix">lock_open</i>
+                        <input id="login_password" type="password" class="validate">
+                        <label for="login_password">Password</label>
+                    </div>
+                    <div class="input-field col m10 offset-m1 orange-text">
+                        <input type="checkbox" class="orange-text" id="filled-in-box" checked="checked">
+                        <label for="filled-in-box">Remember me</label>
+                    </div>
+                </div>
+            </form>
+            <div class="divider"></div>
+            <p>
+                <a href="#" class="btn btn-flat white modal-close">Cancel</a> &nbsp;
+                <a href="#" class="waves-effect waves-orange deep-orange btn btn-flat modal-action modal-close">Login</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+    <!-- reigster modal -->
+<div id="register" class="modal">
+    <div class="modal-content">
+        <h2 class="center-align">Register</h2>
+        <div class="center-align">
+            <div class="divider"></div>
+            <form class="col s12">
+                <div class="row center-align">
+                    <div class="input-field col m10 offset-m1 orange-text">
+                        <i class="material-icons prefix">person</i>
+                        <input id="firstname_register" type="text">
+                        <label for="firstname_register">First Name</label>
+                    </div>
+
+                    <div class="input-field col m10 offset-m1 orange-text">
+                        <i class="material-icons prefix">person</i>
+                        <input id="lastname_register" type="text">
+                        <label for="lastname_register">Last Name</label>
+                    </div>
+
+
+                    <div class="input-field col m10 offset-m1 orange-text">
+                        <i class="material-icons prefix">mail</i>
+                        <input id="email_register" type="email" class="validate">
+                        <label for="email_register">Email</label>
+                    </div>
+
+                    <div class="input-field col m10 offset-m1 orange-text">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="phone_register" type="tel" class="validate">
+                        <label for="phone_register">Phone Number</label>
+                    </div>
+
+                    <div class="input-field col m10 offset-m1 orange-text">
+                        <i class="material-icons prefix">security</i>
+                        <input id="password_register" type="password" class="validate">
+                        <label for="password_register">Password</label>
+                    </div>
+                </div>
+            </form>
+            <div class="divider"></div>
+            <p>
+                <a href="#" class="btn btn-flat white modal-close">Cancel</a> &nbsp;
+                <a href="#" class="waves-effect waves-orange deep-orange btn btn-flat modal-action modal-close white-text">Register</a>
+            </p>
+        </div>
+    </div>
+</div>
