@@ -1,13 +1,18 @@
 package models;
+import com.avaje.ebean.Model;
 
-import org.apache.maven.model.Model;
-import java.util.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Created by Sai on 30/08/2016.
  */
+
+@Entity
 public class User extends Model {
+    @Id
     protected Integer ID;
+
     protected String email;
     protected String facebook;
     protected String name;
@@ -15,6 +20,8 @@ public class User extends Model {
     protected Integer privilege;
     protected String phoneNumber;
     protected String password;
+    public static Finder<Long, User> find = new Finder<Long,User>(User.class);
+
     //TODO add dietary requirements and disability fields
 
 

@@ -1,7 +1,6 @@
 package models;
-
-import org.apache.maven.model.Model;
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -11,7 +10,9 @@ import java.util.*;
 /**
  * Created by Sai on 29/08/2016.
  */
-public class Event  extends Model {
+
+public class Event{
+    protected Integer ID;
     protected String eventName;
     protected Double cost;
     protected Double donationsTotal;
@@ -23,8 +24,6 @@ public class Event  extends Model {
     protected TreeMap<Integer, Double> donationsPersonal;   //Int user ID, double for donation
     protected int[] volunteersNeeded;  //split default into four departments
     protected int[] volunteersAcquired;
-
-
     /**
      * Constructor sets base event info
      */
