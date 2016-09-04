@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+@(userForm: Form[User])(event: Event)
+@main(userForm = userForm){
+    <div class="row">
+        <div class="center col s12 m12">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">@event.geteventName()</span>
+                    <p>
+                        Cost: @event.getCost() <br>
+                        Attendees Current: @event.getAttendeesCurrent() <br>
+                        Capacity: @event.getCapacity()
 
-</body>
-</html>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -28,6 +28,7 @@ public class Event extends Model{
     protected TreeMap<Integer, Double> donationsPersonal;   //Int user ID, double for donation
     protected int[] volunteersNeeded;  //split default into four departments
     protected int[] volunteersAcquired;
+    public static Finder<Long, Event> find = new Finder<Long,Event>(Event.class);
     /**
      * Constructor sets base event info
      */

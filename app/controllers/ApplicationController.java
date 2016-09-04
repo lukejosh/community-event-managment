@@ -27,14 +27,15 @@ public class ApplicationController  extends Controller {
         return ok(index.render(userForm));
     }
 
-    public Result event(){
-        return ok(event.render());
+    public Result getEvent(long id){
+        Form<User> userForm = formFactory.form(User.class).bindFromRequest();
+        Event resultEvent = Event.find.byId(id);
+        return ok(event.render(userForm, resultEvent));
     }
 
     public Result saveUser(){
         Form<User> userForm = formFactory.form(User.class).bindFromRequest();
-        User test = userForm.get();
-        System.out.println(userForm.toString());
+        userForm.get().save();
         return index();
     }
 }
