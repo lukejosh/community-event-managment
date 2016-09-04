@@ -2,6 +2,8 @@ package models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
+import com.avaje.ebean.Model;
+
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -11,7 +13,9 @@ import java.util.*;
  * Created by Sai on 29/08/2016.
  */
 
-public class Event{
+@Entity
+public class Event extends Model{
+    @Id
     protected Integer ID;
     protected String eventName;
     protected Double cost;
