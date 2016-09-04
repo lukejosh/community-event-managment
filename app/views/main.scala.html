@@ -1,0 +1,31 @@
+@(content: Html)
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>Community Organisation</title>
+
+            <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link href="@routes.Assets.versioned("stylesheets/materialize.css")" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="@routes.Assets.versioned("stylesheets/style.css")" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <!-- CSS  -->
+    </head>
+
+    <body>
+        @header.render()
+        @content
+        @footer.render()
+
+            <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="@routes.Assets.versioned("javascripts/materialize.js")"></script>
+        <script src="@routes.Assets.versioned("javascripts/init.js")"></script>
+        <script src="@routes.Assets.versioned("javascripts/login.js")"></script>
+            <!--  Scripts-->
+    </body>
+
+</html>
