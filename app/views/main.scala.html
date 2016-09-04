@@ -1,4 +1,4 @@
-@(content: Html)
+@(userForm: Form[User])(content: Html)
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@
     </head>
 
     <body>
-        @header.render()
+        @header.render(userForm)
         @content
         @footer.render()
 

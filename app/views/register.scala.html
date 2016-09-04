@@ -1,0 +1,60 @@
+@(userForm: Form[User])
+@import helper._
+@implicitFieldConstructor = @{ FieldConstructor(materializeFieldConstructor.f)}
+
+<!-- reigster modal -->
+<div id="register" class="modal">
+    <div class="modal-content">
+        <h2 class="center-align">Register</h2>
+        <div class="center-align">
+            <div class="divider"></div>
+            @helper.form(action = routes.ApplicationController.saveUser(), 'class -> "col s12") {
+                <div class="row center-align">
+                    @helper.inputText(userForm("name"),
+                        'input_class -> "input-field col m10 offset-m1 orange-text",
+                        'id -> "name_register",
+                        'class -> "validate",
+                        '_label -> "Name",
+                        'input_type -> "text",
+                        'icon -> "person"
+                    )
+
+                    @helper.inputText(userForm("email"),
+                        'input_class -> "input-field col m10 offset-m1 orange-text",
+                        'id -> "email_register",
+                        'class -> "validate",
+                        '_label -> "Email Address",
+                        'input_type -> "text",
+                        'icon -> "mail"
+                    )
+
+                    @helper.inputText(userForm("phone"),
+                        'input_class -> "input-field col m10 offset-m1 orange-text",
+                        'id -> "phone_register",
+                        'class -> "validate",
+                        '_label -> "Phone Number",
+                        'input_type -> "text",
+                        'icon -> "phone"
+                    )
+
+                    @helper.inputPassword(userForm("phone"),
+                        'input_class -> "input-field col m10 offset-m1 orange-text",
+                        'id -> "password_register",
+                        'class -> "validate",
+                        '_label -> "Password",
+                        'input_type -> "password",
+                        'icon -> "lock_open"
+                    )
+
+                    <input type="submit" content="Submit">
+
+                </div>
+            }
+            <div class="divider"></div>
+            <p>
+
+                <a href="#" class="btn btn-flat white modal-close">Cancel</a> &nbsp;
+            </p>
+        </div>
+    </div>
+</div>

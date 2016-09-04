@@ -1,0 +1,7 @@
+@(elements: helper.FieldElements)
+
+<div class="@elements.args.get('input_class)">
+    <i class="material-icons prefix">@elements.args.get('icon)</i>
+    @elements.input
+    <label for="@elements.id">@elements.label</label>
+</div>
