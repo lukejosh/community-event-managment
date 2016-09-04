@@ -72,6 +72,7 @@ public class Event extends Model{
         this.donationsPersonal = new TreeMap<Integer, Double>();
     }
 
+    public int getID(){return this.ID;}
     public String geteventName() {return this.eventName;}
     public Double getCost() {return this.cost;}
     public Double getDonationsTotal() { return this.donationsTotal;}
