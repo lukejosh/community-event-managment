@@ -7,6 +7,8 @@ import models.*;
 
 import javax.inject.Inject;
 
+import java.util.List;
+
 import static play.mvc.Results.ok;
 
 /**
@@ -27,10 +29,17 @@ public class ApplicationController  extends Controller {
         return ok(index.render(userForm));
     }
 
-    public Result getEvent(long id){
+    public Result getEvent(int id){
         Form<User> userForm = formFactory.form(User.class).bindFromRequest();
-        Event resultEvent = Event.find.byId(id);
+        Event resultEvent = Event.find.byId(Integer.toUnsignedLong(id));
         return ok(event.render(userForm, resultEvent));
+    }
+
+    public Result allEvents(){
+        Form<User> userForm = formFactory.form(User.class).bindFromRequest();
+        List<Event> resultEvents = Event.find.all();
+
+        return ok(allevents.render(userForm, resultEvents));
     }
 
     public Result saveUser(){

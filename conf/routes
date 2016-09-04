@@ -9,6 +9,8 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 
-GET /event/:id controllers.ApplicationController.getEvent(id:Long)
+GET /event/:id controllers.ApplicationController.getEvent(id:Integer)
+
+GET /events controllers.ApplicationController.allEvents()
 
 POST /login controllers.ApplicationController.saveUser()
