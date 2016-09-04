@@ -8,7 +8,7 @@ import static play.mvc.Results.ok;
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
-public class HomeController{
+public class ApplicationController {
 
     /**
      * An action that renders an HTML page with a welcome message.
@@ -20,5 +20,9 @@ public class HomeController{
         User user = User.find.byId(1L);
         System.out.println(user.getEmail());
         return ok(index.render());
+    }
+
+    public Result event(){
+        return ok(event.render());
     }
 }
