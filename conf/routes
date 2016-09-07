@@ -11,6 +11,8 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 GET /event/:id controllers.ApplicationController.getEvent(id:Integer)
 
-GET /events controllers.ApplicationController.allEvents()
+GET /events controllers.ApplicationController.getRecentEvents()
 
 POST /login controllers.ApplicationController.saveUser()
+
+#Special TEST route for json output of model
