@@ -17,6 +17,7 @@ import java.util.*;
 public class Event extends Model{
     @Id
     protected Integer ID;
+    protected Integer managerID;
     protected String eventName;
     protected Double cost;
     protected Double donationsTotal;
@@ -32,45 +33,45 @@ public class Event extends Model{
     /**
      * Constructor sets base event info
      */
-    public Event (String eventName){
-
-        /**
-         * default constructor
-         */
-        this.eventName = eventName;
-
-        this.donationsTotal = 0.0;
-        this.volunteersAcquired = new int[]{0,0,0,0};
-        this.attendeesCurrent = new ArrayList<ArrayList<Integer>>();
-        this.donationsPersonal = new TreeMap<Integer, Double>();
-    }
-
-    public Event (String eventName, LocalDateTime eventDateTime){
-        this.eventName = eventName;
-        this.eventDateTime = eventDateTime;
-
-        this.donationsTotal = 0.0;
-        this.volunteersAcquired = new int[]{0,0,0,0};
-        this.attendeesCurrent = new ArrayList<ArrayList<Integer>>();
-        this.donationsPersonal = new TreeMap<Integer, Double>();
-    }
-
-    public Event (String eventName, LocalDateTime eventDateTime, String venue, int capacity, double cost, int[] volunteersNeeded, boolean publicPrivate){
-
-        this.eventName = eventName;
-        this.eventDateTime = eventDateTime;
-        this.publicPrivate = publicPrivate;
-        this.venue = venue;
-        this.capacity = capacity;
-        this.cost = cost;
-        this.volunteersNeeded = volunteersNeeded;
-
-
-        this.donationsTotal = 0.0;
-        this.volunteersAcquired = new int[]{0,0,0,0};
-        this.attendeesCurrent = new ArrayList<ArrayList<Integer>>();
-        this.donationsPersonal = new TreeMap<Integer, Double>();
-    }
+//    public Event (String eventName){
+//
+//        /**
+//         * default constructor
+//         */
+//        this.eventName = eventName;
+//
+//        this.donationsTotal = 0.0;
+//        this.volunteersAcquired = new int[]{0,0,0,0};
+//        this.attendeesCurrent = new ArrayList<ArrayList<Integer>>();
+//        this.donationsPersonal = new TreeMap<Integer, Double>();
+//    }
+//
+//    public Event (String eventName, LocalDateTime eventDateTime){
+//        this.eventName = eventName;
+//        this.eventDateTime = eventDateTime;
+//
+//        this.donationsTotal = 0.0;
+//        this.volunteersAcquired = new int[]{0,0,0,0};
+//        this.attendeesCurrent = new ArrayList<ArrayList<Integer>>();
+//        this.donationsPersonal = new TreeMap<Integer, Double>();
+//    }
+//
+//    public Event (String eventName, LocalDateTime eventDateTime, String venue, int capacity, double cost, int[] volunteersNeeded, boolean publicPrivate){
+//
+//        this.eventName = eventName;
+//        this.eventDateTime = eventDateTime;
+//        this.publicPrivate = publicPrivate;
+//        this.venue = venue;
+//        this.capacity = capacity;
+//        this.cost = cost;
+//        this.volunteersNeeded = volunteersNeeded;
+//
+//
+//        this.donationsTotal = 0.0;
+//        this.volunteersAcquired = new int[]{0,0,0,0};
+//        this.attendeesCurrent = new ArrayList<ArrayList<Integer>>();
+//        this.donationsPersonal = new TreeMap<Integer, Double>();
+//    }
 
     public int getID(){return this.ID;}
     public String geteventName() {return this.eventName;}
@@ -82,6 +83,7 @@ public class Event extends Model{
     public Integer getCapacity(){ return this.capacity;}
     public ArrayList<ArrayList<Integer>> getAttendeesCurrent(){return this.attendeesCurrent;}
     public TreeMap<Integer, Double> getDonationsPersonal(){return this.donationsPersonal;}
+    public Integer getManagerID(){return this.managerID;}
 
 
     public void setEventName(String eventName){this.eventName = eventName;}
