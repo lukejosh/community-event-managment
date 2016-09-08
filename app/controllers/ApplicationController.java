@@ -4,12 +4,12 @@ import play.data.FormFactory;
 import play.mvc.*;
 import views.html.*;
 import models.*;
-
+import play.*;
 import javax.inject.Inject;
-
 import java.util.List;
-
 import static play.mvc.Results.ok;
+import static play.libs.Json.toJson;
+
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -46,5 +46,17 @@ public class ApplicationController  extends Controller {
         Form<User> userForm = formFactory.form(User.class).bindFromRequest();
         userForm.get().save();
         return index();
+    }
+
+    //Code to dynamically grab recent events from the database by primary key integer (id) in sequence (recently added first).
+    public Result getRecentEvents(){
+        //list of events, all events by primary key (integer).
+        List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+
+        //return as json for passing to twirl
+        //return ok(toJson(events));
+
+        //return as the list
+        return ok(toJson(events));
     }
 }

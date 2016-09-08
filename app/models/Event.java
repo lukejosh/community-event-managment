@@ -126,17 +126,7 @@ public class Event extends Model{
     }
 
 
-    //Code to dynamically grab recent events from the database by primary key integer (id) in sequence (recently added first).
-    public static Result getRecentEvents(){
-        //list of events, all events by primary key (integer).
-        List<Event> events = new Model.Finder(integer.class, Event.class).all();
 
-        //return as json for passing to twirl
-        return ok(toJson(person));
-
-        //return as the list
-        //return events;
-    }
 
 
 
