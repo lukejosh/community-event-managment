@@ -22,10 +22,10 @@
                             <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4">Splendour In The Grass<i class="material-icons right">close</i></span>
                                 <p>
-                                    Location: North Byron Parklands<br>
-                                    Date: 01/01/2000<br>
-                                    Price: $300<br>
-                                    Availability: 50,000
+                                    Location: @events.get(0).getVenue()<br>
+                                    Date: @events.get(0).getEventDateTime()<br>
+                                    Price: @events.get(0).getCost<br>
+                                    Availability: @events.get(0).getCapacity
                                 </p>
                             </div>
                         </div>
