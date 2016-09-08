@@ -1,4 +1,4 @@
-@(userForm: Form[User])
+@(userForm: Form[User])(events: List[Event])
 <!-- Upcoming Event Cards -->
 @main(userForm = userForm){
     <div class="container">
@@ -16,7 +16,7 @@
                                 <img class="activator" src="@routes.Assets.versioned("images/splendour.jpg")">
                             </div>
                             <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">Splendour In The Grass<i class="material-icons right">more_vert</i></span>
+                                <span class="card-title activator grey-text text-darken-4">@events.get(0).geteventName()<i class="material-icons right">more_vert</i></span>
                                 <p><a href="#">More Information</a></p>
                             </div>
                             <div class="card-reveal">

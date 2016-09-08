@@ -25,8 +25,11 @@ public class ApplicationController  extends Controller {
     }
 
     public Result index() {
+        //Creates a list of events to put into the index page by id
+        List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+
         Form<User> userForm = formFactory.form(User.class);
-        return ok(index.render(userForm));
+        return ok(index.render(userForm, events));
     }
 
     public Result getEvent(int id){
@@ -49,12 +52,10 @@ public class ApplicationController  extends Controller {
     }
 
     //Code to dynamically grab recent events from the database by primary key integer (id) in sequence (recently added first).
+
     public Result getRecentEvents(){
         //list of events, all events by primary key (integer).
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
-
-        //return as json for passing to twirl
-        //return ok(toJson(events));
 
         //return as the list
         return ok(toJson(events));
