@@ -36,8 +36,7 @@ public class ApplicationController  extends Controller {
         //takes you to the createEvent page
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
         Form<User> userForm = formFactory.form(User.class);
-        Form<Event> eventForm = formFactory.form(Event.class);
-        return ok(createevent.render(userForm, events, eventForm));
+        return ok(createevent.render(userForm, events));
     }
 
     public Result getEvent(int id){
@@ -57,12 +56,6 @@ public class ApplicationController  extends Controller {
         Form<User> userForm = formFactory.form(User.class).bindFromRequest();
         userForm.get().save();
         return index();
-    }
-
-    public Result saveEvent(){
-        Form<Event> eventForm = formFactory.form(Event.class).bindFromRequest();
-        eventForm.get().save();
-        return createEvent();
     }
 
     //Code to dynamically grab recent events from the database by primary key integer (id) in sequence (recently added first).
