@@ -36,13 +36,20 @@ public class ApplicationController  extends Controller {
         //takes you to the createEvent page
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
         Form<User> userForm = formFactory.form(User.class);
-        return ok(createevent.render(userForm, events));
+        Form<Event> eventForm = formFactory.form(Event.class);
+        return ok(createevent.render(userForm, events, eventForm));
     }
 
     public Result getEvent(int id){
         Form<User> userForm = formFactory.form(User.class).bindFromRequest();
         Event resultEvent = Event.find.byId(Integer.toUnsignedLong(id));
         return ok(event.render(userForm, resultEvent));
+    }
+
+    public Result saveEvent(){
+        Form<Event> eventForm = formFactory.form(Event.class).bindFromRequest();
+        eventForm.get().save();
+        return createEvent();
     }
 
     public Result allEvents(){
