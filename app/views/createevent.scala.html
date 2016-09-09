@@ -1,32 +1,11 @@
 
-@(userForm: Form[User])(events:List[Event])(eventForm: Form[Event])
-@import helper._
-@implicitFieldConstructor = @{ FieldConstructor(materializeFieldConstructor.f)}
+@(userForm: Form[User])(events:List[Event])
 @main(userForm = userForm){
     <!-- separate page for creating a new event | author : Sai-->
     <div id="createEvent">
-        <div class="container">
 
-            <div class="row center">
-                <h5 class="header col s12 light"> Host an Event</h5>
-            </div>
-
-            <div class="center-align">
-                @helper.form(action = routes.ApplicationController.saveEvent(),'class -> "col s12"){
-                  <div class="row center-align">
-                      @helper.inputText(eventForm("eventName"),
-                          'input_class -> "input-field col m10 offset-m1 orange-text",
-                          'id -> "event_name_register",
-                          'class -> "validate",
-                          '_label -> "Event Name",
-                          'input_type -> "text",
-                          'icon -> "event"
-                      )
-                  </div>
-                }
-
-            </div>
-
+        <div class="row center">
+            <h5 class="header col s12 light"> Host an Event</h5>
         </div>
 
     </div>
