@@ -32,6 +32,13 @@ public class ApplicationController  extends Controller {
         return ok(index.render(userForm, events));
     }
 
+    public Result createEvent(){
+        //takes you to the createEvent page
+        List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+        Form<User> userForm = formFactory.form(User.class);
+        return ok(createevent.render(userForm, events));
+    }
+
     public Result getEvent(int id){
         Form<User> userForm = formFactory.form(User.class).bindFromRequest();
         Event resultEvent = Event.find.byId(Integer.toUnsignedLong(id));
