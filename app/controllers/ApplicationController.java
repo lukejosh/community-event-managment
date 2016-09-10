@@ -70,8 +70,8 @@ public class ApplicationController  extends Controller {
     public Result getRecentEvents(){
         //list of events, all events by primary key (integer).
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
-
         //return as the list
         return ok(toJson(events));
     }
+
 }
