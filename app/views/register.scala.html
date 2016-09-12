@@ -1,4 +1,5 @@
-@(userForm: Form[User])
+@import utils.Navbar
+@(navbar: Navbar)
 @import helper._
 @implicitFieldConstructor = @{ FieldConstructor(materializeFieldConstructor.f)}
 
@@ -10,7 +11,7 @@
             <div class="divider"></div>
             @helper.form(action = routes.ApplicationController.saveUser(), 'class -> "col s12") {
                 <div class="row center-align">
-                    @helper.inputText(userForm("name"),
+                    @helper.inputText(navbar.userForm("name"),
                         'input_class -> "input-field col m10 offset-m1 orange-text",
                         'id -> "name_register",
                         'class -> "validate",
@@ -19,7 +20,7 @@
                         'icon -> "person"
                     )
 
-                    @helper.inputText(userForm("email"),
+                    @helper.inputText(navbar.userForm("email"),
                         'input_class -> "input-field col m10 offset-m1 orange-text",
                         'id -> "email_register",
                         'class -> "validate",
@@ -28,7 +29,7 @@
                         'icon -> "mail"
                     )
 
-                    @helper.inputText(userForm("phone"),
+                    @helper.inputText(navbar.userForm("phone"),
                         'input_class -> "input-field col m10 offset-m1 orange-text",
                         'id -> "phone_register",
                         'class -> "validate",
@@ -37,7 +38,7 @@
                         'icon -> "phone"
                     )
 
-                    @helper.inputPassword(userForm("phone"),
+                    @helper.inputPassword(navbar.userForm("phone"),
                         'input_class -> "input-field col m10 offset-m1 orange-text",
                         'id -> "password_register",
                         'class -> "validate",
@@ -46,13 +47,15 @@
                         'icon -> "lock_open"
                     )
 
-                    <input type="submit" content="Submit">
+                    @*<input type="submit" content="Submit">*@
 
                 </div>
             }
             <div class="divider"></div>
             <p>
-
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
                 <a href="#" class="btn btn-flat white modal-close">Cancel</a> &nbsp;
             </p>
         </div>

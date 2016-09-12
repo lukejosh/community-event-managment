@@ -1,4 +1,5 @@
-@(userForm: Form[User])
+@import utils.Navbar
+@(navbar: Navbar)
 @import helper._
 @implicitFieldConstructor = @{ FieldConstructor(materializeFieldConstructor.f)}
 
@@ -8,9 +9,9 @@
         <h2 class="center-align">Login</h2>
         <div class="center-align">
             <div class="divider"></div>
-            @helper.form(action = routes.ApplicationController.saveUser(), 'class -> "col s12") {
+            @helper.form(action = routes.ApplicationController.login(), 'class -> "col s12") {
                 <div class="row center-align">
-                    @helper.inputText(userForm("email"),
+                    @helper.inputText(navbar.userForm("email"),
                     'input_class -> "input-field col m10 offset-m1 orange-text",
                     'id -> "login_email",
                     'class -> "validate",
@@ -18,7 +19,7 @@
                     'input_type -> "text",
                     'icon -> "mail")
 
-                    @helper.inputText(userForm("password"),
+                    @helper.inputText(navbar.userForm("password"),
                     'input_class -> "input-field col m10 offset-m1 orange-text",
                     'id -> "login_password",
                     'class -> "validate",

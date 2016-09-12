@@ -1,4 +1,5 @@
-@(userForm: Form[User])(content: Html)
+@import utils.Navbar
+@(navbar: Navbar)(content: Html)
 
 <!DOCTYPE html>
 <html>
@@ -16,9 +17,15 @@
     </head>
 
     <body>
-        @header.render(userForm)
+        @if(navbar.loggedInUser == null){
+            @header.render(navbar)
+        }
+
         @content
-        @footer.render()
+
+        @if(navbar.loggedInUser == null){
+            @footer.render()
+        }
 
             <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

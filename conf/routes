@@ -13,4 +13,6 @@ GET /event/:id controllers.ApplicationController.getEvent(id:Integer)
 
 GET /events controllers.ApplicationController.allEvents()
 
-POST /login controllers.ApplicationController.saveUser()
+POST /register controllers.ApplicationController.saveUser()
+
+POST /login controllers.ApplicationController.login()

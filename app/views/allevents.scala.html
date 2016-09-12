@@ -1,5 +1,6 @@
-@(userForm: Form[User])(events: List[Event])
-@main(userForm = userForm){
+@import utils.Navbar
+@(navbar: Navbar)(events: List[Event])
+@main(navbar = navbar){
 
   @for(event <- events){
       <div class="row">

@@ -1,4 +1,5 @@
-@(userForm: Form[User])
+@import utils.Navbar
+@(navbar: Navbar)
 <!-- Navigation bar -->
 <nav class="deep-orange" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo center">Logo</a>
@@ -28,5 +29,5 @@
     </div>
 </nav>
 
-@login.render(userForm)
-@register.render(userForm)
+@login.render(navbar)
+@register.render(navbar)

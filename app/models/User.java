@@ -20,6 +20,9 @@ public class User extends Model {
     protected Integer privilege;
     protected String phoneNumber;
     protected String password;
+    protected String dietaryRequirements;
+    protected Boolean disabilityAccess;
+
     public static Finder<Long, User> find = new Finder<Long,User>(User.class);
 
     //TODO add dietary requirements and disability fields
@@ -75,7 +78,4 @@ public class User extends Model {
     public void resetDonation(){
         this.donationsToDate = 0.0;
     }
-
-
-
 }
