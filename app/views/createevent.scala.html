@@ -1,0 +1,75 @@
+
+@import utils.Navbar
+@(navbar: Navbar)(events:List[Event])(eventForm: Form[Event])
+@import helper._
+@implicitFieldConstructor = @{ FieldConstructor(materializeFieldConstructor.f)}
+@main(navbar = navbar) {
+    <!-- separate page for creating a new event | author : Sai-->
+    <div id="createEvent">
+        <div class="container">
+
+            <div class="row center">
+                <h5 class="header col s12 light"> Host an Event</h5>
+            </div>
+
+            <div class="center-align">
+                @helper.form(action = routes.ApplicationController.saveEvent(), 'class -> "col s12") {
+                    <div class="row center-align">
+                        @helper.inputText(eventForm("eventName"),
+                            'input_class -> "input-field col m6 offset-m1 orange-text",
+                            'id -> "event_name_register",
+                            'class -> "validate",
+                            '_label -> "Event Name",
+                            'input_type -> "text",
+                            'icon -> "event"
+                        )
+
+                        @helper.inputText(eventForm("venue"),
+                            'input_class -> "input-field col m10 offset-m1 orange-text",
+                            'id -> "venue_register",
+                            'class -> "validate",
+                            '_label -> "Venue",
+                            'input_type -> "text",
+                            'icon -> "pin_drop"
+                        )
+
+                        @helper.inputDate(eventForm("eventDateTime"),
+                            'input_class -> "input-field col m5 offset-m1 orange-text",
+                            'id -> "date_register",
+                            'class -> "validate",
+                            'label -> "Date",
+                            'input_type -> "datepicker",
+                            'icon -> "date_range"
+                        )
+
+                        @helper.inputText(eventForm("cost"),
+                            'input_class -> "input-field col m5 offset m orange-text",
+                            'id -> "cost_register",
+                            'class -> "validate",
+                            'label -> "Cost",
+                            'input_type -> "number",
+                            'icon -> "euro_symbol"
+                        )
+
+                        @helper.inputText(eventForm("capacity"),
+                            'input_class -> "input-field col m5 offset-m1 orange-text",
+                            'id -> "capacity_register",
+                            'class -> "validate",
+                            'label -> "Capacity",
+                            'input_type -> "number",
+                            'icon -> "supervisor_account"
+                        )
+
+'
+
+                    </div>
+
+                }
+                <a href="#" class="waves-effect waves-orange deep-orange btn btn-flat ">Create Event</a>
+            </div>
+
+        </div>
+
+    </div>
+}
+

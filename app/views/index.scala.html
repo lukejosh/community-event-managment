@@ -1,5 +1,5 @@
 @import utils.Navbar
-@(navbar: Navbar)
+@(navbar: Navbar)(events: List[Event])
 <!-- Upcoming Event Cards -->
 @main(navbar = navbar){
     <div class="container">
@@ -10,27 +10,30 @@
             </div>
 
             <div class="row">
-                @for(i <- 1 to 6){ @*Generate 6 of the same card, for now*@
+
+                @for(i <- 0 to 5){ @*Generate 6 of the same card, for now*@
+                    <!--populate tiles from the values of newly populated events grabbed from the database, indexed by the "i" in the for loop -->
                     <div class="col s12 m4">
                         <div class="card hoverable small">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="@routes.Assets.versioned("images/splendour.jpg")">
                             </div>
                             <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">Splendour In The Grass<i class="material-icons right">more_vert</i></span>
+                                <span class="card-title activator grey-text text-darken-4">@events.get(i).geteventName()<i class="material-icons right">more_vert</i></span>
                                 <p><a href="#">More Information</a></p>
                             </div>
                             <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Splendour In The Grass<i class="material-icons right">close</i></span>
+                                <span class="card-title grey-text text-darken-4">@events.get(i).geteventName()<i class="material-icons right">close</i></span>
                                 <p>
-                                    Location: North Byron Parklands<br>
-                                    Date: 01/01/2000<br>
-                                    Price: $300<br>
-                                    Availability: 50,000
+                                    Location: @events.get(i).getVenue()<br>
+                                    Date: @events.get(i).getEventDateTime()<br>
+                                    Price: @events.get(i).getCost<br>
+                                    Availability: @events.get(i).getCapacity
                                 </p>
                             </div>
                         </div>
                     </div>
+
                 }
             </div>
             <div class="row center">
