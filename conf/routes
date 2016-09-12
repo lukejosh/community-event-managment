@@ -11,6 +11,12 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 GET /event/:id controllers.ApplicationController.getEvent(id:Integer)
 
+GET /createevent controllers.ApplicationController.createEvent()
+
+GET /saveevent controllers.ApplicationController.saveEvent()
+
+GET /index controllers.ApplicationController.index()
+
 GET /events controllers.ApplicationController.getRecentEvents()
 
 POST /login controllers.ApplicationController.saveUser()

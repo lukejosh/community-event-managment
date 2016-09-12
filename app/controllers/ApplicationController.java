@@ -32,10 +32,24 @@ public class ApplicationController  extends Controller {
         return ok(index.render(userForm, events));
     }
 
+    public Result createEvent(){
+        //takes you to the createEvent page
+        List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+        Form<User> userForm = formFactory.form(User.class);
+        Form<Event> eventForm = formFactory.form(Event.class);
+        return ok(createevent.render(userForm, events, eventForm));
+    }
+
     public Result getEvent(int id){
         Form<User> userForm = formFactory.form(User.class).bindFromRequest();
         Event resultEvent = Event.find.byId(Integer.toUnsignedLong(id));
         return ok(event.render(userForm, resultEvent));
+    }
+
+    public Result saveEvent(){
+        Form<Event> eventForm = formFactory.form(Event.class).bindFromRequest();
+        eventForm.get().save();
+        return createEvent();
     }
 
     public Result allEvents(){
@@ -56,8 +70,8 @@ public class ApplicationController  extends Controller {
     public Result getRecentEvents(){
         //list of events, all events by primary key (integer).
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
-
         //return as the list
         return ok(toJson(events));
     }
+
 }
