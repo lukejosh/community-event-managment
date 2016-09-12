@@ -1,6 +1,21 @@
 @(userForm: Form[User])(events: List[Event])
 <!-- Upcoming Event Cards -->
-@main(userForm = userForm){
+@main(userForm = userForm) {
 
+
+
+<div class="container">
+
+    @for(i <- 0 to events.size()-1) { @*Generate a card for each event returned by the query*@
+
+
+
+        <div class="card hoverable small">
+        @events(i).geteventName()
+        </div>
+
+    }
+
+    </div>
 
 }

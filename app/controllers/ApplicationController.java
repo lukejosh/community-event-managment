@@ -64,6 +64,15 @@ public class ApplicationController  extends Controller {
         return index();
     }
 
+    public Result search(){
+        Form<User> userForm = formFactory.form(User.class).bindFromRequest();
+        List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+
+        return ok(search.render(userForm, events));
+
+
+    }
+
     //Code to dynamically grab recent events from the database by primary key integer (id) in sequence (recently added first).
 
     public Result getRecentEvents(){
