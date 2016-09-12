@@ -21,14 +21,15 @@ public class Event extends Model{
     protected String eventName;
     protected Double cost;
     protected Double donationsTotal;
-    protected LocalDateTime eventDateTime;
-    protected Boolean publicPrivate;
+    protected Date eventDate;
+    protected Boolean publicPrivate = false;
     protected String venue;
     protected Integer capacity;
     protected ArrayList<ArrayList<Integer>> attendeesCurrent; //
     protected TreeMap<Integer, Double> donationsPersonal;   //Int user ID, double for donation
     protected String volunteersNeeded;
     protected String volunteersAcquired;
+    protected String imageLink;
 
 
 
@@ -40,7 +41,7 @@ public class Event extends Model{
     public String geteventName() {return this.eventName;}
     public Double getCost() {return this.cost;}
     public Double getDonationsTotal() { return this.donationsTotal;}
-    public LocalDateTime getEventDateTime(){ return this.eventDateTime;}
+    public Date getEventDate(){ return this.eventDate;}
     public Boolean getPrivacy(){return this.publicPrivate;}
     public String getVenue(){ return this.venue;}
     public Integer getCapacity(){ return this.capacity;}
@@ -49,21 +50,22 @@ public class Event extends Model{
     public Integer getManagerID(){return this.managerID;}
     public String getVolunteersNeeded(){return this.volunteersNeeded;}
     public String getVolunteersAcquired(){return this.volunteersAcquired;}
+    public String getImageLink(){return this.imageLink;}
 
 
     public void setEventName(String eventName){this.eventName = eventName;}
     public void setCost(Double cost){this.cost = cost;}
     public void setDonationsTotal(Double donationsTotal){this.donationsTotal = donationsTotal;}
-    public void setEventDateTime(LocalDateTime eventDateTime){this.eventDateTime = eventDateTime;}
+    public void setEventDate(Date eventDate){this.eventDate = eventDate;}
     public void setPrivacy(Boolean publicPrivate){this.publicPrivate = publicPrivate;}
     public void setVenue(String venue){this.venue = venue;}
     public void setCapacity(Integer capacity){this.capacity = capacity;}
-
+    public void setImageLink(String imageLink){this.imageLink = imageLink;}
     public void setVolunteersNeeded(String volunteersNeeded){this.volunteersNeeded = volunteersNeeded;}
     public void setVolunteersAcquired(String volunteersAcquired){this.volunteersAcquired = volunteersAcquired;}
 
 
-    public void addAttendee(Integer userID, Integer numGuests){
+    public void addAttendee(Integer userID, Integer numGuests) {
         ArrayList<Integer> attendee = new ArrayList<Integer>();
         attendee.add(userID);
         attendee.add(numGuests);
@@ -71,14 +73,14 @@ public class Event extends Model{
         this.attendeesCurrent.add(attendee);
     }
 
-    public void addDonation(Integer userID, Double donation){
+    public void addDonation(Integer userID, Double donation) {
         this.donationsTotal += donation;
 
         if (this.donationsPersonal.containsKey(userID)) {
             Double currentDonation = this.donationsPersonal.get(userID);        //CHECK
-            this.donationsPersonal.replace(userID,currentDonation + donation );
+            this.donationsPersonal.replace(userID, currentDonation + donation);
 
-        }else{
+        } else {
             this.donationsPersonal.put(userID, donation);
         }
 
