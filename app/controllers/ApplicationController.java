@@ -27,7 +27,6 @@ public class ApplicationController  extends Controller {
     public Result index() {
         //Creates a list of events to put into the index page by id
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
-
         Form<User> userForm = formFactory.form(User.class);
         return ok(index.render(userForm, events));
     }
