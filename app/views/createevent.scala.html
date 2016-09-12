@@ -47,7 +47,7 @@
                             'class -> "validate",
                             'label -> "Cost",
                             'input_type -> "number",
-                            'icon -> "euro_symbol"
+                            'icon -> "attach_money"
                         )
 
                         @helper.inputText(eventForm("capacity"),
@@ -59,7 +59,19 @@
                             'icon -> "supervisor_account"
                         )
 
-'
+                        @helper.inputText(eventForm("volunteersNeeded"),
+                            'input_class -> "input-field col m2 offset -m0 orange-text",
+                            'id -> "volunteers_register",
+                            'class -> "validate",
+                            'label -> "Volunteers Needed",
+                            'input_type -> "number",
+                            'icon -> "supervisor_account"
+                        )
+
+
+
+
+
 
                     </div>
 
