@@ -2,6 +2,43 @@
 @(navbar: Navbar)(events: List[Event])
 <!-- Upcoming Event Cards -->
 @main(navbar = navbar){
+    <div class="container">
+    <div class="input-field col s6">
+        @helper.form(action = routes.ApplicationController.search(), 'class -> "col s12") {
+            @helper.inputText(navbar.userForm("search"),
+                'input_class -> "input-field col m10 offset-m1 orange-text",
+                'id -> "search",
+                'class -> "validate",
+                '_label -> "search",
+                'input_type -> "text",
+                'icon -> "search"
+            )
+        }
+    </div>
+    <br>
+    <br>
 
+
+    @for(i <- 0 to events.size()-1) { @*Generate a card for each event returned by the query*@
+
+
+
+        <div class="card hoverable small">
+            <div class = "center">
+
+            @events(i).geteventName()
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+    }
+    </div>
 
 }

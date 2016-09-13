@@ -24,3 +24,10 @@ GET /index controllers.ApplicationController.index()
 GET /events controllers.ApplicationController.getRecentEvents()
 
 GET /logout controllers.ApplicationController.logout()
+
+GET     /search controllers.ApplicationController.search()
+
+POST /login controllers.ApplicationController.saveUser()
+
+
+#Special TEST route for json output of model

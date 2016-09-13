@@ -23,6 +23,7 @@ public class User extends Model {
     protected String password;
     protected String dietaryRequirements;
     protected Boolean disabilityAccess;
+    protected String search;
 
     public Integer getID(){return this.ID;}
     public String getName(){ return this.name;}

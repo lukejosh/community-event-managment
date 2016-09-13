@@ -6,6 +6,7 @@ import play.mvc.*;
 import utils.Navbar;
 import views.html.*;
 import models.*;
+import play.*;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -18,7 +19,7 @@ import static play.libs.Json.toJson;
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
-public class ApplicationController  extends Controller {
+public class ApplicationController extends Controller {
 
     private FormFactory formFactory;
 
@@ -48,7 +49,7 @@ public class ApplicationController  extends Controller {
 
     }
 
-    public Result createEvent(){
+    public Result createEvent() {
         //takes you to the createEvent page
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
         Navbar navbar = getNavbar();
@@ -62,7 +63,7 @@ public class ApplicationController  extends Controller {
         return ok(event.render(navbar, resultEvent));
     }
 
-    public Result saveEvent(){
+    public Result saveEvent() {
         Form<Event> eventForm = formFactory.form(Event.class).bindFromRequest();
         eventForm.get().save();
         return createEvent();
@@ -104,15 +105,35 @@ public class ApplicationController  extends Controller {
         return index();
     }
 
-    public Result saveUser(){
+    public Result saveUser() {
         Form<User> userForm = formFactory.form(User.class).bindFromRequest();
         userForm.get().save();
         return index();
     }
 
+    public Result search(){
+        //Create the user form
+        Navbar navbar = getNavbar();
+        navbar.userForm.bindFromRequest().get();
+
+        List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+
+        if(navbar.userForm.field("search")!= null){
+
+            events = Event.find.where()
+                    .ilike("event_name", navbar.userForm.field("search").toString())
+                    .findList();
+
+        }
+
+        return ok(search.render(navbar, events));
+
+
+    }
+
     //Code to dynamically grab recent events from the database by primary key integer (id) in sequence (recently added first).
 
-    public Result getRecentEvents(){
+    public Result getRecentEvents() {
         //list of events, all events by primary key (integer).
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
         //return as the list
