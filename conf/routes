@@ -22,3 +22,5 @@ GET /saveevent controllers.ApplicationController.saveEvent()
 GET /index controllers.ApplicationController.index()
 
 GET /events controllers.ApplicationController.getRecentEvents()
+
+GET /logout controllers.ApplicationController.logout()

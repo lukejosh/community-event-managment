@@ -1,14 +1,15 @@
 package controllers;
+import com.avaje.ebean.Query;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
 import utils.Navbar;
 import views.html.*;
 import models.*;
-import play.*;
+
 import javax.inject.Inject;
 import java.util.List;
-import java.util.Map;
+
 import static play.mvc.Results.ok;
 import static play.libs.Json.toJson;
 
@@ -75,19 +76,30 @@ public class ApplicationController  extends Controller {
     }
 
     public Result login(){
-        Map<String, String> userData = formFactory.form(User.class).data();
-        String email = userData.get("email");
-        String password = userData.get("password");
+        Form<User> userData = formFactory.form(User.class).bindFromRequest();
+        String email = userData.get().getEmail();
+        String password = userData.get().getPassword();
 
-        List<User> result = User.find.where().ilike("email", email).orderBy("ID asc").findPagedList().getList();
+        User result = User.find.where().eq("email", userData.get().getEmail()).findUnique();
 
-        if(result.get(0).getPassword().equals(password)){
-            session("connected", result.get(0).getID().toString());
+        if(result == null){
+            return index();
+        }
+
+        if(result.getPassword().equals(password)){
+            session("connected", result.getID().toString());
         }
 
         else{
+            System.out.println("whoops");
             return badRequest();
         }
+
+        return index();
+    }
+
+    public Result logout(){
+        session().clear();
 
         return index();
     }

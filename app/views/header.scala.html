@@ -5,8 +5,13 @@
     <div class="nav-wrapper container"><a id="logo-container" href="index" class="brand-logo center">Logo</a>
             <!-- Desktop Navbar Items -->
         <ul class="right hide-on-med-and-down">
-            <li><a href="#login" class="modal-trigger">Login</a></li>
-            <li><a href="#register" class="modal-trigger">Register</a></li>
+            @if(navbar.loggedInUser == null) {
+                <li><a href="#login" class="modal-trigger">Login</a></li>
+                <li><a href="#register" class="modal-trigger">Register</a></li>
+            } else{
+                <li><a href="#">@navbar.loggedInUser.getEmail()</a></li>
+                <li><a href="@routes.ApplicationController.logout()">Logout</a></li>
+            }
         </ul>
 
         <ul class="left hide-on-med-and-down">
@@ -29,5 +34,7 @@
     </div>
 </nav>
 
-@login.render(navbar)
-@register.render(navbar)
+@if(navbar.loggedInUser == null) {
+    @login.render(navbar)
+    @register.render(navbar)
+}

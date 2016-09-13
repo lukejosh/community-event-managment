@@ -17,15 +17,9 @@
     </head>
 
     <body>
-        @if(navbar.loggedInUser == null){
-            @header.render(navbar)
-        }
-
+        @header.render(navbar)
         @content
-
-        @if(navbar.loggedInUser == null){
-            @footer.render()
-        }
+        @footer.render()
 
             <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
