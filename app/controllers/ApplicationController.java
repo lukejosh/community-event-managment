@@ -69,8 +69,19 @@ public class ApplicationController extends Controller {
     }
 
     public Result search(){
+        //Create the user form
         Form<User> userForm = formFactory.form(User.class).bindFromRequest();
+        userForm.bindFromRequest().get();
+
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+
+        if(userForm.field("search")!= null){
+
+            events = Event.find.where()
+                    .ilike("event_name", userForm.field("search").toString())
+                    .findList();
+
+        }
 
         return ok(search.render(userForm, events));
 
