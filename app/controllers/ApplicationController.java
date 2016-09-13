@@ -44,6 +44,7 @@ public class ApplicationController  extends Controller {
         Navbar navbar = getNavbar();
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
         return ok(index.render(navbar, events));
+
     }
 
     public Result createEvent(){
