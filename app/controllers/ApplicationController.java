@@ -117,10 +117,10 @@ public class ApplicationController extends Controller {
         Form<String> searchForm = formFactory.form(String.class).bindFromRequest();
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
 
-        if(searchForm.field("search")!= null){
+        if(searchForm.field("search").value() != null){
 
             events = Event.find.where()
-                    .ilike("event_name", searchForm.field("search").toString())
+                    .ilike("event_name", searchForm.field("search").value())
                     .findList();
 
         }

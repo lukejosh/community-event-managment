@@ -15,15 +15,17 @@
             )
         }
 
-        <h1>@request().body().asText() request body here</h1>
+        <p>You searched for "@searchForm.field("search").value()"</p>
     <br>
     <br>
 
         @*quick bit of form logic to return no results found if search is unpopulated*@
-        @if(events.size()==0 ){
-            @if(searchForm.field("search").value() == null) {
+
+            @if(searchForm.field("search").value() != null) {
+                @if(events.size()==0 ){
                 <h1>no results found</h1>
             }
+
         }
 
 
