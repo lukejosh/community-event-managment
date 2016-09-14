@@ -25,7 +25,7 @@ GET /events controllers.ApplicationController.getRecentEvents()
 
 GET /logout controllers.ApplicationController.logout()
 
-GET     /search controllers.ApplicationController.search()
+GET /search controllers.ApplicationController.search()
 
 POST /login controllers.ApplicationController.saveUser()
 

@@ -44,14 +44,14 @@ public class ApplicationController extends Controller {
 
     public Result index() {
         Navbar navbar = getNavbar();
-        List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+        List<Event> events = new Event.Finder(Event.class).all();
         return ok(index.render(navbar, events));
 
     }
 
     public Result createEvent() {
         //takes you to the createEvent page
-        List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+        List<Event> events = new Event.Finder(Event.class).all();
         Navbar navbar = getNavbar();
         Form<Event> eventForm = formFactory.form(Event.class);
         return ok(createevent.render(navbar, events, eventForm));
@@ -116,7 +116,7 @@ public class ApplicationController extends Controller {
         Navbar navbar = getNavbar();
         navbar.userForm.bindFromRequest().get();
 
-        List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+        List<Event> events = new Event.Finder(Event.class).all();
 
         if(navbar.userForm.field("search")!= null){
 
@@ -125,9 +125,7 @@ public class ApplicationController extends Controller {
                     .findList();
 
         }
-
         return ok(search.render(navbar, events));
-
 
     }
 
@@ -135,7 +133,7 @@ public class ApplicationController extends Controller {
 
     public Result getRecentEvents() {
         //list of events, all events by primary key (integer).
-        List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+        List<Event> events = new Event.Finder(Event.class).all();
         //return as the list
         return ok(toJson(events));
     }

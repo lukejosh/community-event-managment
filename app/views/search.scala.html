@@ -5,6 +5,7 @@
     <div class="container">
     <div class="input-field col s6">
         @helper.form(action = routes.ApplicationController.search(), 'class -> "col s12") {
+
             @helper.inputText(navbar.userForm("search"),
                 'input_class -> "input-field col m10 offset-m1 orange-text",
                 'id -> "search",
