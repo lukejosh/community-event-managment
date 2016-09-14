@@ -3,7 +3,7 @@
 <!-- Upcoming Event Cards -->
 @main(navbar = navbar){
     <div class="container">
-
+        
     <div class="input-field col s6">
         <i class="material-icons prefix">search</i>
         @helper.form(action = routes.ApplicationController.search(), 'class -> "col s6") {
@@ -24,7 +24,6 @@
 
 
         @*quick bit of form logic to return no results found if search is unpopulated*@
-
             @if(searchForm.field("search").value() != null) {
                 @if(events.size()==0 ){
                     <p>You searched for "@searchForm.field("search").value()"</p><br>
@@ -32,8 +31,8 @@
             }
 
         }
-
-@if(searchForm.field("search").value()!=""){
+@*if the search form is not null and is not an empty string, display results*@
+@if(searchForm.field("search").value()!="" && searchForm.field("search").value()!=null){
     <p>You searched for "@searchForm.field("search").value()"</p><br>
     @for(i <- 0 to events.size()-1) { @*Generate a card for each event returned by the query*@
 
