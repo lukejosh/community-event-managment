@@ -1,11 +1,11 @@
 @import utils.Navbar
-@(navbar: Navbar)(events: List[Event])
+@(navbar: Navbar)(events: List[Event])(searchForm: Form[String])
 <!-- Upcoming Event Cards -->
 @main(navbar = navbar){
     <div class="container">
     <div class="input-field col s6">
         @helper.form(action = routes.ApplicationController.search(), 'class -> "col s12") {
-            @helper.inputText(navbar.userForm("search"),
+            @helper.inputText(searchForm("search"),
                 'input_class -> "input-field col m10 offset-m1 orange-text",
                 'id -> "search",
                 'class -> "validate",
