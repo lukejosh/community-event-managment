@@ -34,22 +34,6 @@
 
 
     @for(i <- 0 to events.size()-1) { @*Generate a card for each event returned by the query*@
-        @*<div class="col s6">*@
-        @*<div class="card small">*@
-            @*<div class = "center">*@
-
-
-                    @*<div class="card-image">*@
-                        @*<img class="circle responsive-img" src="@events(i-1).getImageLink"></img>*@
-                        @*<span class="card-title">@events(i-1).geteventName()</span>*@
-                    @*</div>*@
-                    @*<div class="card-content">*@
-                        @*the content goes here*@
-                    @*</div>*@
-
-                @*</div>*@
-            @*</div>*@
-        @*</div>*@
 
         <div class="col s12 m7">
             <div class="card horizontal">
@@ -66,7 +50,7 @@
                         <p>Seats: @events(i).getCapacity</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">This is a link</a>
+                        <a href="#">link to event???</a>
                     </div>
                 </div>
             </div>
