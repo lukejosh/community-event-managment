@@ -21,18 +21,20 @@
             </div>
         </div>
 
-        <p>You searched for "@searchForm.field("search").value()"</p><br>
+
 
         @*quick bit of form logic to return no results found if search is unpopulated*@
 
             @if(searchForm.field("search").value() != null) {
                 @if(events.size()==0 ){
+                    <p>You searched for "@searchForm.field("search").value()"</p><br>
                 <h1>no results found</h1>
             }
 
         }
 
-
+@if(searchForm.field("search").value()!=""){
+    <p>You searched for "@searchForm.field("search").value()"</p><br>
     @for(i <- 0 to events.size()-1) { @*Generate a card for each event returned by the query*@
 
         <div class="col s12 m7">
@@ -56,6 +58,7 @@
             </div>
         </div>
     }
+}
     </div>
 
 
