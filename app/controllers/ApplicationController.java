@@ -118,11 +118,9 @@ public class ApplicationController extends Controller {
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
 
         if(searchForm.field("search").value() != null){
-
             events = Event.find.where()
                     .ilike("event_name", "%"+searchForm.field("search").value()+"%")
                     .findList();
-
         }
 
         return ok(search.render(navbar, events, searchForm));
