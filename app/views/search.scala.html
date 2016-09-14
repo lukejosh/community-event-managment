@@ -3,21 +3,25 @@
 <!-- Upcoming Event Cards -->
 @main(navbar = navbar){
     <div class="container">
+
     <div class="input-field col s6">
-        @helper.form(action = routes.ApplicationController.search(), 'class -> "col s12") {
+        <i class="material-icons prefix">search</i>
+        @helper.form(action = routes.ApplicationController.search(), 'class -> "col s6") {
+            <div class="row center-align">
             @helper.inputText(searchForm("search"),
-                'input_class -> "input-field col m10 offset-m1 orange-text",
-                'id -> "search",
+                'input_class -> "input-field col s6",
+                'id -> "icon_prefix",
                 'class -> "validate",
-                '_label -> "search",
+                '_label -> "",
                 'input_type -> "text",
+                'placeholder -> "search",
                 'icon -> "search"
             )
         }
+            </div>
+        </div>
 
-        <p>You searched for "@searchForm.field("search").value()"</p>
-    <br>
-    <br>
+        <p>You searched for "@searchForm.field("search").value()"</p><br>
 
         @*quick bit of form logic to return no results found if search is unpopulated*@
 
@@ -29,17 +33,46 @@
         }
 
 
-    @for(i <- 1 to events.size()) { @*Generate a card for each event returned by the query*@
-        <div class="card hoverable small">
-            <div class = "center">
+    @for(i <- 0 to events.size()-1) { @*Generate a card for each event returned by the query*@
+        @*<div class="col s6">*@
+        @*<div class="card small">*@
+            @*<div class = "center">*@
 
-            @events(i-1).geteventName()
 
+                    @*<div class="card-image">*@
+                        @*<img class="circle responsive-img" src="@events(i-1).getImageLink"></img>*@
+                        @*<span class="card-title">@events(i-1).geteventName()</span>*@
+                    @*</div>*@
+                    @*<div class="card-content">*@
+                        @*the content goes here*@
+                    @*</div>*@
+
+                @*</div>*@
+            @*</div>*@
+        @*</div>*@
+
+        <div class="col s12 m7">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="@events(i).getImageLink">
+                    <span class="card-title">@events(i).geteventName()</span>
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h3>@events(i).geteventName()</h3>
+                        <p>Time: @events(i).getEventDate</p>
+                        <p>Place: @events(i).getVenue</p>
+                        <p>Price: @events(i).getCost</p>
+                        <p>Seats: @events(i).getCapacity</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
             </div>
         </div>
     }
     </div>
 
-    </div>
 
 }

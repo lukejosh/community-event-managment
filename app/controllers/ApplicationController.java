@@ -120,7 +120,7 @@ public class ApplicationController extends Controller {
         if(searchForm.field("search").value() != null){
 
             events = Event.find.where()
-                    .ilike("event_name", searchForm.field("search").value())
+                    .ilike("event_name", "%"+searchForm.field("search").value()+"%")
                     .findList();
 
         }
