@@ -3,10 +3,9 @@
 <!-- Upcoming Event Cards -->
 @main(navbar = navbar){
     <div class="container">
-    <div class="input-field col s6">
-        @helper.form(action = routes.ApplicationController.search(), 'class -> "col s12") {
+        @helper.form(action = routes.ApplicationController.search(), 'class -> "col s6") {
             @helper.inputText(navbar.userForm("search"),
-                'input_class -> "input-field col m10 offset-m1 orange-text",
+                'input_class -> "input-field col m6 offset-m3 orange-text",
                 'id -> "search",
                 'class -> "validate",
                 '_label -> "search",
@@ -14,30 +13,27 @@
                 'icon -> "search"
             )
         }
-    </div>
+
+        <h1>@request().body().asText() request body here</h1>
     <br>
     <br>
 
+        @*quick bit of form logic to return no results found if search is unpopulated*@
+        @if(events.size()==0 ){
+            @if(navbar.userForm.field("search").value() == null) {
+                <h1>no results found</h1>
+            }
+        }
 
-    @for(i <- 0 to events.size()-1) { @*Generate a card for each event returned by the query*@
 
-
-
+    @for(i <- 1 to events.size()) { @*Generate a card for each event returned by the query*@
         <div class="card hoverable small">
             <div class = "center">
 
-            @events(i).geteventName()
-
-
-
-
+            @events(i-1).geteventName()
 
             </div>
-
-
-
         </div>
-
     }
     </div>
 

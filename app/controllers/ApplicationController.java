@@ -1,5 +1,6 @@
 package controllers;
 import com.avaje.ebean.Query;
+import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
@@ -9,7 +10,9 @@ import models.*;
 import play.*;
 
 import javax.inject.Inject;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static play.mvc.Results.ok;
 import static play.libs.Json.toJson;
@@ -31,6 +34,7 @@ public class ApplicationController extends Controller {
     private Navbar getNavbar(){
         String user = session("connected");
         Navbar navbar;
+
         if(user != null){
             navbar = new Navbar(User.find.byId(Long.parseLong(user)));
         }
@@ -115,15 +119,12 @@ public class ApplicationController extends Controller {
         //Create the user form
         Navbar navbar = getNavbar();
         navbar.userForm.bindFromRequest().get();
-
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
 
-        if(navbar.userForm.field("search")!= null){
-
+        if(navbar.userForm.field("search").value()!= "" ){
             events = Event.find.where()
                     .ilike("event_name", navbar.userForm.field("search").toString())
                     .findList();
-
         }
 
         return ok(search.render(navbar, events));
