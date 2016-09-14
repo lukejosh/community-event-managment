@@ -12,6 +12,10 @@ import javax.inject.Inject;
 public class Navbar {
     public Form<User> userForm;
     public User loggedInUser;
+    public String search;
+
+
+
 
     public Navbar(User user){
         this.loggedInUser = user;
@@ -20,4 +24,8 @@ public class Navbar {
     public Navbar(Form<User> form){
         userForm = form;
     }
+
+
+
+
 }

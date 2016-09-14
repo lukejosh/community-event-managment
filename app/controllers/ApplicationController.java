@@ -114,9 +114,7 @@ public class ApplicationController extends Controller {
     public Result search(){
         //Create the user form
         Navbar navbar = getNavbar();
-//        navbar.userForm.bindFromRequest().get();
         Form<String> searchForm = formFactory.form(String.class).bindFromRequest();
-
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
 
         if(searchForm.field("search")!= null){

@@ -14,31 +14,30 @@
                 'icon -> "search"
             )
         }
-    </div>
+
+        <h1>@request().body().asText() request body here</h1>
     <br>
     <br>
 
+        @*quick bit of form logic to return no results found if search is unpopulated*@
+        @if(events.size()==0 ){
+            @if(searchForm.field("search").value() == null) {
+                <h1>no results found</h1>
+            }
+        }
 
-    @for(i <- 0 to events.size()-1) { @*Generate a card for each event returned by the query*@
 
-
-
+    @for(i <- 1 to events.size()) { @*Generate a card for each event returned by the query*@
         <div class="card hoverable small">
             <div class = "center">
 
-            @events(i).geteventName()
-
-
-
-
+            @events(i-1).geteventName()
 
             </div>
-
-
-
         </div>
-
     }
+    </div>
+
     </div>
 
 }
