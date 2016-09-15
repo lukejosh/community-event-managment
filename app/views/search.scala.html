@@ -4,23 +4,24 @@
 @main(navbar = navbar){
     <div class="container">
 
-    <div class="input-field col s6">
-        <i class="material-icons prefix">search</i>
-        @helper.form(action = routes.ApplicationController.search(), 'class -> "col s6") {
-            <div class="row center-align">
-            @helper.inputText(searchForm("search"),
-                'input_class -> "input-field col s6",
-                'id -> "icon_prefix",
-                'class -> "validate",
-                '_label -> "",
-                'input_type -> "text",
-                'placeholder -> "search",
-                'icon -> "search"
-            )
-        }
+        <div class="input-field col s6">
+            <div class ="container">
+                <i class="material-icons prefix">search</i>
+                @helper.form(action = routes.ApplicationController.search(), 'class -> "col s6") {
+                    <div class="row center-align">
+                        @helper.inputText(searchForm("search"),
+                            'input_class -> "input-field col s6",
+                            'id -> "icon_prefix",
+                            'class -> "validate",
+                            '_label -> "",
+                            'input_type -> "text",
+                            'placeholder -> "search",
+                            'icon -> "search"
+                        )
+                    }
+            </div>
             </div>
         </div>
-
 
 
         @*quick bit of form logic to return no results found if search is unpopulated*@
