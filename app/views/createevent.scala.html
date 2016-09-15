@@ -33,7 +33,7 @@
                         'icon -> "pin_drop"
                     )
 
-                        <!--image link-->
+                        <!--image link, no upload -->
                     @helper.inputText(eventForm("imageLink"),
                         'input_class -> "input-field col m10 offset-m1 orange-text",
                         'id -> "image_link_register",
@@ -42,8 +42,6 @@
                         'input_type -> "text",
                         'icon -> "add_a_photo"
                     )
-
-                        <!--image upload--> <!--maybe :P-->
 
                     @helper.inputDate(eventForm("eventDate"),
                         'input_class -> "input-field col m5 offset-m1 orange-text",
@@ -80,10 +78,11 @@
                         'input_type -> "number",
                         'icon -> "supervisor_account"
                     )
+
+                    <!-- checkbox helper unsatisfactory -->
                     <div class ="col">
                         <i class="small material-icons orange-text margin-top 30px">supervisor_account</i>
                     </div>
-
                     <div class ="input-field col m3">
                         <input type="checkbox"
                         id="checkboxPrivate"
