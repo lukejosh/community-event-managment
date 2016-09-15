@@ -24,6 +24,7 @@ public class User extends Model {
     protected String dietaryRequirements;
     protected Boolean disabilityAccess;
     protected String search;
+    protected String imageLink;
 
     public Integer getID(){return this.ID;}
     public String getName(){ return this.name;}
@@ -36,6 +37,7 @@ public class User extends Model {
     public String getDietaryRequirements(){ return this.dietaryRequirements;}
     public Boolean getDisabilityAccess(){return this.disabilityAccess;}
     public String getSearch(){return this.search;}
+    public String getImageLink(){return this.imageLink;}
 
     public void setEmail(String email){this.email = email;}
     public void setName(String name){this.name = name;}
@@ -46,6 +48,7 @@ public class User extends Model {
     public void setDisabilityAccess(Boolean disabilityAccess){this.disabilityAccess = disabilityAccess;}
     public void setDietaryRequirements(String dietaryRequirements){this.dietaryRequirements = dietaryRequirements;}
     public void setSearch(String search){this.search = search;}
+    public void setImageLink(String imageLink){this.imageLink = imageLink;}
 
     public void addDonation(Double donation){
         this.donationsToDate += donation;
