@@ -122,9 +122,7 @@ public class ApplicationController extends Controller {
                     .ilike("event_name", "%"+searchForm.field("search").value()+"%")
                     .findList();
         }
-
         return ok(search.render(navbar, events, searchForm));
-
 
     }
 
