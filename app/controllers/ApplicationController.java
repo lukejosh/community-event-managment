@@ -1,5 +1,6 @@
 package controllers;
 import com.avaje.ebean.Query;
+import com.google.common.collect.Lists;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.*;
@@ -44,7 +45,10 @@ public class ApplicationController extends Controller {
 
     public Result index() {
         Navbar navbar = getNavbar();
+        //grab an object with all the events
         List<Event> events = new Event.Finder(Integer.class, Event.class).all();
+        //create a list and reverse it for most recent by id
+        events = Lists.reverse(events);
         return ok(index.render(navbar, events));
 
     }
