@@ -1,5 +1,6 @@
 package models;
 import com.avaje.ebean.Model;
+import play.data.validation.Constraints;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,12 +15,16 @@ public class User extends Model {
 
     @Id
     protected Integer ID;
+    @Constraints.Email
     protected String email;
     protected String facebook;
+    @Constraints.Required
     protected String name;
     protected Double donationsToDate; //resets each year
     protected Integer privilege;
+    @Constraints.Required
     protected String phoneNumber;
+    @Constraints.Required
     protected String password;
     protected String dietaryRequirements;
     protected Boolean disabilityAccess;

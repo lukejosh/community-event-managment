@@ -10,6 +10,8 @@ import models.*;
 import play.*;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static play.mvc.Results.ok;
@@ -64,6 +66,9 @@ public class ApplicationController extends Controller {
     public Result getEvent(int id){
         Navbar navbar = getNavbar();
         Event resultEvent = Event.find.byId(Integer.toUnsignedLong(id));
+        //populate page with users related to the event
+        List<User> attendingUsers = new LinkedList<User>();
+
         return ok(event.render(navbar, resultEvent));
     }
 

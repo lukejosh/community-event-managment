@@ -3,6 +3,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
 import com.avaje.ebean.Model;
+import play.data.validation.Constraints;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -18,15 +19,19 @@ public class Event extends Model{
     @Id
     protected Integer ID;
     protected Integer managerID;
+    @Constraints.Required
     protected String eventName;
+    @Constraints.Required
     protected Double cost;
     protected Double donationsTotal;
+    @Constraints.Required
     protected Date eventDate;
     protected Boolean publicPrivate = false;
+    @Constraints.Required
     protected String venue;
     protected Integer capacity;
     protected Integer numAttending; // a count of attendees
-    protected ArrayList<ArrayList<Integer>> attendeesCurrent; // a register of attendees | format [User ID],[number attending]
+    protected Map<Integer, Integer> attendeesCurrent; // a register of attendees | format [User ID],[number attending]
     protected TreeMap<Integer, Double> donationsPersonal;   //Int user ID, double for donation
     protected String volunteersNeeded;
     protected String volunteersAcquired;
@@ -46,7 +51,7 @@ public class Event extends Model{
     public Boolean getPrivacy(){return this.publicPrivate;}
     public String getVenue(){ return this.venue;}
     public Integer getCapacity(){ return this.capacity;}
-    public ArrayList<ArrayList<Integer>> getAttendeesCurrent(){return this.attendeesCurrent;}
+    public Map<Integer, Integer> getAttendeesCurrent(){return this.attendeesCurrent;}
     public TreeMap<Integer, Double> getDonationsPersonal(){return this.donationsPersonal;}
     public Integer getManagerID(){return this.managerID;}
     public String getVolunteersNeeded(){return this.volunteersNeeded;}
@@ -68,13 +73,15 @@ public class Event extends Model{
     public void setNumAttending(Integer numAttending) {this.numAttending = numAttending;}
 
 
-    public void addAttendee(Integer userID, Integer numGuests) {
-        ArrayList<Integer> attendee = new ArrayList<Integer>();
-        attendee.add(userID);
-        attendee.add(numGuests);
 
-        this.attendeesCurrent.add(attendee);
-    }
+    //TODO Rewrite this for the updated map form
+//    public void addAttendee(Integer userID, Integer numGuests) {
+//        ArrayList<Integer> attendee = new ArrayList<Integer>();
+//        attendee.add(userID);
+//        attendee.add(numGuests);
+//
+//        this.attendeesCurrent.add(attendee);
+//    }
 
     public void addDonation(Integer userID, Double donation) {
         this.donationsTotal += donation;
