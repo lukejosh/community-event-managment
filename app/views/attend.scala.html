@@ -1,0 +1,17 @@
+@import utils.Navbar
+@(navbar: Navbar)(event: Event)
+@import helper._
+@implicitFieldConstructor = @{ FieldConstructor(materializeFieldConstructor.f)}
+
+  <!--attend modal-->
+  <div id="Attend" class="modal">
+    <div class="modal-content">
+      <h2 class="center-align">Attend</h2>
+      <div class="center-align">
+        <div class="divider"></div>
+        @helper.form(action = routes.ApplicationController.attend(), 'class -> "col s12"){
+
+        }
+      </div>
+    </div>
+  </div>

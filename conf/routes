@@ -23,6 +23,8 @@ GET /index controllers.ApplicationController.index()
 
 GET /events controllers.ApplicationController.getRecentEvents()
 
+GET /attend controllers.ApplicationController.attend()
+
 GET /logout controllers.ApplicationController.logout()
 
 GET /search controllers.ApplicationController.search()
