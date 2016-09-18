@@ -1,38 +1,42 @@
 @import utils.Navbar
 @(navbar: Navbar)
 <!-- Navigation bar -->
-<nav class="deep-orange" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="index" class="brand-logo center">Logo</a>
-            <!-- Desktop Navbar Items -->
-        <ul class="right hide-on-med-and-down">
-            @if(navbar.loggedInUser == null) {
-                <li><a href="#login" class="modal-trigger">Login</a></li>
-                <li><a href="#register" class="modal-trigger">Register</a></li>
-            } else{
-                <li><a href="#">@navbar.loggedInUser.getEmail()</a></li>
-                <li><a href="@routes.ApplicationController.logout()">Logout</a></li>
-            }
-        </ul>
+<header>
+    <div class="navbar-fixed">
+        <nav class="deep-orange" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="index" class="brand-logo center">Logo</a>
+                    <!-- Desktop Navbar Items -->
+                <ul class="right hide-on-med-and-down">
+                    @if(navbar.loggedInUser == null) {
+                        <li><a href="#login" class="modal-trigger">Login</a></li>
+                        <li><a href="#register" class="modal-trigger">Register</a></li>
+                    } else{
+                        <li><a href="#">@navbar.loggedInUser.getEmail()</a></li>
+                        <li><a href="@routes.ApplicationController.logout()">Logout</a></li>
+                    }
+                </ul>
 
-        <ul class="left hide-on-med-and-down">
-            <li><a href="/search">Search</a></li>
-            <li><a href="#">Upcoming</a></li>
-            <li><a href="createevent">Host Event</a></li>
-        </ul>
-            <!-- Desktop Navbar Items -->
+                <ul class="left hide-on-med-and-down">
+                    <li><a href="/search">Search</a></li>
+                    <li><a href="#">Upcoming</a></li>
+                    <li><a href="createevent">Host Event</a></li>
+                </ul>
+                    <!-- Desktop Navbar Items -->
 
-            <!-- Mobile Navbar Items -->
-        <ul id="nav-mobile" class="side-nav">
-            <li><a href="#login" class="modal-trigger">Login</a></li>
-            <li><a href="#register" class="modal-trigger">Register</a></li>
-            <li><a href="/search">Search</a></li>
-            <li><a href="#">Upcoming</a></li>
-            <li><a href="#">Something Else</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            <!-- Mobile Navbar Items -->
+                    <!-- Mobile Navbar Items -->
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#login" class="modal-trigger">Login</a></li>
+                    <li><a href="#register" class="modal-trigger">Register</a></li>
+                    <li><a href="/search">Search</a></li>
+                    <li><a href="#">Upcoming</a></li>
+                    <li><a href="#">Something Else</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <!-- Mobile Navbar Items -->
+            </div>
+        </nav>
     </div>
-</nav>
+</header>
 
 @if(navbar.loggedInUser == null) {
     @login.render(navbar)

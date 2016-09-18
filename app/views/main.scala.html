@@ -12,7 +12,6 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <link href="@routes.Assets.versioned("stylesheets/materialize.css")" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="@routes.Assets.versioned("stylesheets/style.css")" type="text/css" rel="stylesheet" media="screen,projection"/>
             <!-- CSS  -->
 
             <!--META TAGS FOR FACEBOOK SCRAPING, SHARING EVENTS-->
@@ -25,18 +24,19 @@
 
 
     </head>
+     @header.render(navbar)
 
-    <body>
-        @header.render(navbar)
+    <main>
         @content
-        @footer.render()
+    </main>
 
-            <!--  Scripts-->
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="@routes.Assets.versioned("javascripts/materialize.js")"></script>
-        <script src="@routes.Assets.versioned("javascripts/init.js")"></script>
-        <script src="@routes.Assets.versioned("javascripts/login.js")"></script>
-            <!--  Scripts-->
-    </body>
+    @footer.render()
+
+        <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="@routes.Assets.versioned("javascripts/materialize.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/init.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/login.js")"></script>
+        <!--  Scripts-->
 
 </html>
