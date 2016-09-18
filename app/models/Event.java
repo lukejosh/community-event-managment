@@ -25,7 +25,8 @@ public class Event extends Model{
     protected Boolean publicPrivate = false;
     protected String venue;
     protected Integer capacity;
-    protected ArrayList<ArrayList<Integer>> attendeesCurrent; //
+    protected Integer numAttending; // a count of attendees
+    protected ArrayList<ArrayList<Integer>> attendeesCurrent; // a register of attendees | format [User ID],[number attending]
     protected TreeMap<Integer, Double> donationsPersonal;   //Int user ID, double for donation
     protected String volunteersNeeded;
     protected String volunteersAcquired;
@@ -38,7 +39,7 @@ public class Event extends Model{
 
 
     public int getID(){return this.ID;}
-    public String geteventName() {return this.eventName;}
+    public String getEventName() {return this.eventName;}
     public Double getCost() {return this.cost;}
     public Double getDonationsTotal() { return this.donationsTotal;}
     public Date getEventDate(){ return this.eventDate;}
@@ -51,6 +52,7 @@ public class Event extends Model{
     public String getVolunteersNeeded(){return this.volunteersNeeded;}
     public String getVolunteersAcquired(){return this.volunteersAcquired;}
     public String getImageLink(){return this.imageLink;}
+    public Integer getNumAttending() {return numAttending;}
 
 
     public void setEventName(String eventName){this.eventName = eventName;}
@@ -63,6 +65,7 @@ public class Event extends Model{
     public void setImageLink(String imageLink){this.imageLink = imageLink;}
     public void setVolunteersNeeded(String volunteersNeeded){this.volunteersNeeded = volunteersNeeded;}
     public void setVolunteersAcquired(String volunteersAcquired){this.volunteersAcquired = volunteersAcquired;}
+    public void setNumAttending(Integer numAttending) {this.numAttending = numAttending;}
 
 
     public void addAttendee(Integer userID, Integer numGuests) {
@@ -93,22 +96,4 @@ public class Event extends Model{
          */
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
