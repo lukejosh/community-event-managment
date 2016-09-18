@@ -80,6 +80,10 @@ public class ApplicationController extends Controller {
         return ok(allevents.render(navbar, resultEvents));
     }
 
+    public Result attend(){
+        return getEvent(1);
+    }
+
     public Result login(){
         Form<User> userData = formFactory.form(User.class).bindFromRequest();
         String email = userData.get().getEmail();

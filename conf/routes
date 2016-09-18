@@ -17,6 +17,8 @@ POST /register controllers.ApplicationController.saveUser()
 
 POST /login controllers.ApplicationController.login()
 
+POST /attend controllers.ApplicationController.attend()
+
 GET /saveevent controllers.ApplicationController.saveEvent()
 
 GET /index controllers.ApplicationController.index()
