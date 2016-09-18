@@ -18,11 +18,9 @@ public class User extends Model {
     @Constraints.Email
     protected String email;
     protected String facebook;
-    @Constraints.Required
     protected String name;
     protected Double donationsToDate; //resets each year
     protected Integer privilege;
-    @Constraints.Required
     protected String phoneNumber;
     @Constraints.Required
     protected String password;
