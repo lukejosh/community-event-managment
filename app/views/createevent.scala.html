@@ -15,6 +15,9 @@
             <div class="center-align">
             @helper.form(action = routes.ApplicationController.saveEvent(), 'class -> "col s12") {
                 <div class="row center-align">
+
+
+
                     @helper.inputText(eventForm("eventName"),
                         'input_class -> "input-field col m10 offset-m1 orange-text",
                         'id -> "event_name_register",
@@ -78,6 +81,12 @@
                         'input_type -> "number",
                         'icon -> "supervisor_account"
                     )
+
+                    <!-- Cheeky hidden form for managerID -->
+
+
+
+
 
                     <!-- checkbox helper unsatisfactory -->
                     <div class ="col">

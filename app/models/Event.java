@@ -24,7 +24,6 @@ public class Event extends Model{
     @Constraints.Required
     protected Double cost;
     protected Double donationsTotal;
-    @Constraints.Required
     protected Date eventDate;
     protected Boolean publicPrivate = false;
     @Constraints.Required
@@ -71,6 +70,7 @@ public class Event extends Model{
     public void setVolunteersNeeded(String volunteersNeeded){this.volunteersNeeded = volunteersNeeded;}
     public void setVolunteersAcquired(String volunteersAcquired){this.volunteersAcquired = volunteersAcquired;}
     public void setNumAttending(Integer numAttending) {this.numAttending = numAttending;}
+    public void setManagerID(Integer managerID) {this.managerID = managerID;}
 
 
 
