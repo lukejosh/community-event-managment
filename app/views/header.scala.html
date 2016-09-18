@@ -21,12 +21,16 @@
                     <li><a href="#">Upcoming</a></li>
                     <li><a href="createevent">Host Event</a></li>
                 </ul>
-                    <!-- Desktop Navbar Items -->
 
                     <!-- Mobile Navbar Items -->
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#login" class="modal-trigger">Login</a></li>
-                    <li><a href="#register" class="modal-trigger">Register</a></li>
+                    @if(navbar.loggedInUser == null) {
+                        <li><a href="#login" class="modal-trigger">Login</a></li>
+                        <li><a href="#register" class="modal-trigger">Register</a></li>
+                    } else{
+                        <li><a href="#">@navbar.loggedInUser.getEmail()</a></li>
+                        <li><a href="@routes.ApplicationController.logout()">Logout</a></li>
+                    }
                     <li><a href="/search">Search</a></li>
                     <li><a href="#">Upcoming</a></li>
                     <li><a href="#">Something Else</a></li>
