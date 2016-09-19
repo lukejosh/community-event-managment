@@ -24,7 +24,7 @@ public class Event extends Model{
     @Constraints.Required
     protected Double cost;
     protected Double donationsTotal;
-    protected Date eventDate;
+    protected String eventDate;
     protected Boolean publicPrivate = false;
     @Constraints.Required
     protected String venue;
@@ -46,7 +46,7 @@ public class Event extends Model{
     public String getEventName() {return this.eventName;}
     public Double getCost() {return this.cost;}
     public Double getDonationsTotal() { return this.donationsTotal;}
-    public Date getEventDate(){ return this.eventDate;}
+    public String getEventDate(){ return this.eventDate;}
     public Boolean getPrivacy(){return this.publicPrivate;}
     public String getVenue(){ return this.venue;}
     public Integer getCapacity(){ return this.capacity;}
@@ -62,7 +62,7 @@ public class Event extends Model{
     public void setEventName(String eventName){this.eventName = eventName;}
     public void setCost(Double cost){this.cost = cost;}
     public void setDonationsTotal(Double donationsTotal){this.donationsTotal = donationsTotal;}
-    public void setEventDate(Date eventDate){this.eventDate = eventDate;}
+    public void setEventDate(String eventDate){this.eventDate = eventDate;}
     public void setPrivacy(Boolean publicPrivate){this.publicPrivate = publicPrivate;}
     public void setVenue(String venue){this.venue = venue;}
     public void setCapacity(Integer capacity){this.capacity = capacity;}
