@@ -91,7 +91,6 @@ public class ApplicationController extends Controller {
 
     public Result login(){
         Form<User> userData = formFactory.form(User.class).bindFromRequest();
-        String email = userData.get().getEmail();
         String password = userData.get().getPassword();
 
         User result = User.find.where().eq("email", userData.get().getEmail()).findUnique();
@@ -105,7 +104,7 @@ public class ApplicationController extends Controller {
         }
 
         else{
-            System.out.println("whoops");
+            //TODO: insert some account not found stuff
             return badRequest();
         }
 
