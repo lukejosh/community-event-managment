@@ -4,7 +4,7 @@
 <header>
     <div class="navbar-fixed">
         <nav class="deep-orange" role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="index" class="brand-logo center">Logo</a>
+            <div class="nav-wrapper container"><a id="logo-container" href="@routes.ApplicationController.index()" class="brand-logo center">Logo</a>
                     <!-- Desktop Navbar Items -->
                 <ul class="right hide-on-med-and-down">
                     @if(navbar.loggedInUser == null) {

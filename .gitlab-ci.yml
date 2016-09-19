@@ -1,16 +1,16 @@
 stages:
-  - test
+#  - test
   - deploy
 
-test:
-  image: java:8
-  stage: test
-  script:
-    - echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
-    - apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
-    - apt-get update -yq
-    - apt-get install sbt -y
-    - sbt test
+#test:
+#  image: java:8
+#  stage: test
+#  script:
+##    - echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
+##    - apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+##    - apt-get update -yq
+##    - apt-get install sbt -y
+##    - sbt test
 
 deploy-production:
   stage: deploy
