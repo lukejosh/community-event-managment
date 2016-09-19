@@ -20,7 +20,7 @@ public class User extends Model {
     protected String facebook;
     protected String name;
     protected Double donationsToDate; //resets each year
-    protected Integer privilege;
+    protected Integer privilege = 0;
     protected String phoneNumber;
     @Constraints.Required
     protected String password;

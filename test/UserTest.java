@@ -94,12 +94,20 @@ public class UserTest {
 
     @Test
     public void userAddDonation() {
+        testUser.addDonation(30.00);
+        assertEquals(30.00, testUser.getDonationsToDate(), 0.0);
+    }
+
+    @Test
+    public void userAddDonationTwice() {
         testUser.addDonation(32.00);
-        assertEquals(32.00, testUser.getDonationsToDate(), 0.0);
+        testUser.addDonation(38.00);
+        assertEquals(70.00, testUser.getDonationsToDate(), 0.0);
     }
 
     @Test
     public void userResetDonations() {
+        testUser.addDonation(30.00);
         testUser.resetDonation();
         assertEquals(0.0, testUser.getDonationsToDate(), 0.0);
     }
