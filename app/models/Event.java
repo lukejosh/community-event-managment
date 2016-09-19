@@ -36,7 +36,12 @@ public class Event extends Model{
     protected String volunteersAcquired;
     protected String imageLink;
 
-
+    public Event(String eventName, Double cost, Double donationsTotal, String venue) {
+        this.eventName = eventName;
+        this.cost = cost;
+        this.donationsTotal = donationsTotal;
+        this.venue = venue;
+    }
 
     //protected int[] volunteersAcquired;
     public static Finder<Long, Event> find = new Finder<Long,Event>(Event.class);
