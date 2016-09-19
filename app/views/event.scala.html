@@ -7,31 +7,50 @@
                 <br>
             </div>
             <div class="col s8">
-                <h3>@event.getEventName()</h3>
+                <br>
             </div>
         </div>
 
-        <div class="row">
 
-            <div class="col s3">
-                <div class="card-image">
-                    <img src="@event.getImageLink">
+
+
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="@event.getImageLink()">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <h2 class="header">@event.getEventName()</h2>
+                    <h5>Date: @event.getEventDate</h5>
+                    <h5>Venue: @event.getVenue</h5>
+                    <h5>Cost: @event.getCost</h5>
+                </div>
+                <div class="card-action">
                 </div>
             </div>
-
-            <div class="col s3">
-                <h5>Date: @event.getEventDate</h5>
-                <h5>Venue: @event.getVenue</h5>
-                <h5>Cost: @event.getCost</h5>
-            </div>
-
-            <div class="col s4">
-                <br>
-                <h5>Capacity: @event.getCapacity</h5>
-                <h5>Public : @event.getPrivacy</h5>
-            </div>
-
         </div>
+
+        @*<div class="row">*@
+
+            @*<div class="col s3">*@
+                @*<div class="card-image">*@
+                    @*<img src="@event.getImageLink">*@
+                @*</div>*@
+            @*</div>*@
+
+            @*<div class="col s3">*@
+                @*<h5>Date: @event.getEventDate</h5>*@
+                @*<h5>Venue: @event.getVenue</h5>*@
+                @*<h5>Cost: @event.getCost</h5>*@
+            @*</div>*@
+
+            @*<div class="col s4">*@
+                @*<br>*@
+                @*<h5>Capacity: @event.getCapacity</h5>*@
+                @*<h5>Public : @event.getPrivacy</h5>*@
+            @*</div>*@
+
+        @*</div>*@
 
         <div class="row">
             <div class="col s6 left-align">
