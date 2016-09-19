@@ -29,6 +29,17 @@ public class User extends Model {
     protected String search;
     protected String imageLink;
 
+    public User(String email, String name, String phoneNumber, String password, String search) {
+        this.email = email;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.search = search;
+        this.donationsToDate = 0.0;
+        this.privilege = 0;
+    }
+
+
     public Integer getID(){return this.ID;}
     public String getName(){ return this.name;}
     public String getEmail(){return this.email;}
