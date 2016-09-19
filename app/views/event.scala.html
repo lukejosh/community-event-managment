@@ -18,38 +18,17 @@
             <div class="card-stacked">
                 <div class="card-content">
                     <h2 class="header">@event.getEventName()</h2>
-                    <h5>Date: @event.getEventDate</h5>
-                    <h5>Venue: @event.getVenue</h5>
-                    <h5>Cost: @event.getCost</h5>
-                    <h5>Capacity: @event.getCapacity</h5>
-                    <h5>Private Event: @event.getPrivacy</h5>
+                    <p>Date: @event.dateString()</p>
+                    <p>Venue: @event.getVenue</p>
+                    <p>Cost: @event.getCost</p>
+                    <p>Capacity: @event.getCapacity</p>
+                    <p>Private Event: @event.getPrivacy</p>
                 </div>
                 <div class="card-action">
                 </div>
             </div>
         </div>
 
-        @*<div class="row">*@
-
-            @*<div class="col s3">*@
-                @*<div class="card-image">*@
-                    @*<img src="@event.getImageLink">*@
-                @*</div>*@
-            @*</div>*@
-
-            @*<div class="col s3">*@
-                @*<h5>Date: @event.getEventDate</h5>*@
-                @*<h5>Venue: @event.getVenue</h5>*@
-                @*<h5>Cost: @event.getCost</h5>*@
-            @*</div>*@
-
-            @*<div class="col s4">*@
-                @*<br>*@
-                @*<h5>Capacity: @event.getCapacity</h5>*@
-                @*<h5>Public : @event.getPrivacy</h5>*@
-            @*</div>*@
-
-        @*</div>*@
 
         <div class="row">
             <div class="col s6 left-align">
